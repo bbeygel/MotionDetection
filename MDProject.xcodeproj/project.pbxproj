@@ -22,6 +22,12 @@
 		B4B820B21FB5D7E5005EC849 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B820B11FB5D7E4005EC849 /* MainTabBarController.swift */; };
 		B4B820B91FB5D835005EC849 /* AppWatchDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B820B81FB5D835005EC849 /* AppWatchDelegate.swift */; };
 		B4B820BC1FB5DA19005EC849 /* DataSetHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B820BB1FB5DA19005EC849 /* DataSetHandler.swift */; };
+		B4B820BF1FB5DE66005EC849 /* NavigationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B820BE1FB5DE66005EC849 /* NavigationProtocol.swift */; };
+		B4B820C01FB5E21B005EC849 /* MotionSampler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B820AF1FB5CF35005EC849 /* MotionSampler.swift */; };
+		B4B820C11FB5E21E005EC849 /* MotionSample.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B820B01FB5CF35005EC849 /* MotionSample.swift */; };
+		B4B820C41FB5E3B6005EC849 /* AppCommunicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B820C31FB5E3B6005EC849 /* AppCommunicator.swift */; };
+		B4B820C61FB5E72F005EC849 /* NotificationMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B820C51FB5E72F005EC849 /* NotificationMessage.swift */; };
+		B4B820C71FB5E74A005EC849 /* NotificationMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B820C51FB5E72F005EC849 /* NotificationMessage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +95,9 @@
 		B4B820B11FB5D7E4005EC849 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		B4B820B81FB5D835005EC849 /* AppWatchDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppWatchDelegate.swift; sourceTree = "<group>"; };
 		B4B820BB1FB5DA19005EC849 /* DataSetHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSetHandler.swift; sourceTree = "<group>"; };
+		B4B820BE1FB5DE66005EC849 /* NavigationProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationProtocol.swift; sourceTree = "<group>"; };
+		B4B820C31FB5E3B6005EC849 /* AppCommunicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCommunicator.swift; sourceTree = "<group>"; };
+		B4B820C51FB5E72F005EC849 /* NotificationMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationMessage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +141,7 @@
 		B4B820731FB5CDB6005EC849 /* MDProject */ = {
 			isa = PBXGroup;
 			children = (
+				B4B820BD1FB5DE4C005EC849 /* Protocols */,
 				B4B820BA1FB5DA07005EC849 /* Handlers */,
 				B4B820B71FB5D805005EC849 /* AppDelegates */,
 				B4B820B41FB5D7EF005EC849 /* Model */,
@@ -156,6 +166,7 @@
 		B4B820961FB5CDB7005EC849 /* MDProject WatchKit Extension */ = {
 			isa = PBXGroup;
 			children = (
+				B4B820C21FB5E398005EC849 /* Communication */,
 				B4B820AE1FB5CF35005EC849 /* Sampling */,
 				B4B820971FB5CDB7005EC849 /* InterfaceController.swift */,
 				B4B820991FB5CDB7005EC849 /* ExtensionDelegate.swift */,
@@ -187,6 +198,7 @@
 		B4B820B41FB5D7EF005EC849 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				B4B820C51FB5E72F005EC849 /* NotificationMessage.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -215,6 +227,22 @@
 				B4B820BB1FB5DA19005EC849 /* DataSetHandler.swift */,
 			);
 			path = Handlers;
+			sourceTree = "<group>";
+		};
+		B4B820BD1FB5DE4C005EC849 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				B4B820BE1FB5DE66005EC849 /* NavigationProtocol.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		B4B820C21FB5E398005EC849 /* Communication */ = {
+			isa = PBXGroup;
+			children = (
+				B4B820C31FB5E3B6005EC849 /* AppCommunicator.swift */,
+			);
+			path = Communication;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -354,8 +382,10 @@
 			files = (
 				B4B820B91FB5D835005EC849 /* AppWatchDelegate.swift in Sources */,
 				B4B820751FB5CDB6005EC849 /* AppDelegate.swift in Sources */,
+				B4B820C61FB5E72F005EC849 /* NotificationMessage.swift in Sources */,
 				B4B820B21FB5D7E5005EC849 /* MainTabBarController.swift in Sources */,
 				B4B820BC1FB5DA19005EC849 /* DataSetHandler.swift in Sources */,
+				B4B820BF1FB5DE66005EC849 /* NavigationProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -363,9 +393,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B4B820C41FB5E3B6005EC849 /* AppCommunicator.swift in Sources */,
+				B4B820C01FB5E21B005EC849 /* MotionSampler.swift in Sources */,
 				B4B8209C1FB5CDB7005EC849 /* NotificationController.swift in Sources */,
+				B4B820C11FB5E21E005EC849 /* MotionSample.swift in Sources */,
 				B4B8209A1FB5CDB7005EC849 /* ExtensionDelegate.swift in Sources */,
 				B4B820981FB5CDB7005EC849 /* InterfaceController.swift in Sources */,
+				B4B820C71FB5E74A005EC849 /* NotificationMessage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -524,6 +558,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = SGDFJZX8EN;
 				INFOPLIST_FILE = "MDProject WatchKit Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bgu.MDProject.watchkitapp.watchkitextension;
@@ -532,7 +567,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 4.2;
+				WATCHOS_DEPLOYMENT_TARGET = 3.0;
 			};
 			name = Debug;
 		};
@@ -541,6 +576,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = SGDFJZX8EN;
 				INFOPLIST_FILE = "MDProject WatchKit Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bgu.MDProject.watchkitapp.watchkitextension;
@@ -549,7 +585,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 4.2;
+				WATCHOS_DEPLOYMENT_TARGET = 3.0;
 			};
 			name = Release;
 		};
@@ -559,6 +595,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = SGDFJZX8EN;
 				IBSC_MODULE = MDProject_WatchKit_Extension;
 				INFOPLIST_FILE = "MDProject WatchKit App/Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bgu.MDProject.watchkitapp;
@@ -577,6 +614,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = SGDFJZX8EN;
 				IBSC_MODULE = MDProject_WatchKit_Extension;
 				INFOPLIST_FILE = "MDProject WatchKit App/Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bgu.MDProject.watchkitapp;
@@ -594,7 +632,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = SGDFJZX8EN;
 				INFOPLIST_FILE = MDProject/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bgu.MDProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -608,7 +648,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = SGDFJZX8EN;
 				INFOPLIST_FILE = MDProject/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bgu.MDProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
