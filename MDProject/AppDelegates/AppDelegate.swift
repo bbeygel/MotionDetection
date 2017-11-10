@@ -43,4 +43,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
-
+extension AppDelegate {
+    var mainTabController : MainTabBarController {
+        return window?.rootViewController as! MainTabBarController
+    }
+}
