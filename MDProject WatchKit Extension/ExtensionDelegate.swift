@@ -10,8 +10,6 @@ import WatchKit
 import WatchConnectivity
 
 class ExtensionDelegate: NSObject, WKExtensionDelegate {
-
-    let watchSampler : MotionSampler = MotionSampler()
     
     func applicationDidFinishLaunching() {
         if WCSession.isSupported()
@@ -61,7 +59,7 @@ extension ExtensionDelegate : WCSessionDelegate {
         print ("Activation Completed With state: \(activationState)")
     }
     func session(_ session: WCSession, didReceiveMessageData messageData: Data) {
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "recievedPhoneData"),object: self, userInfo: message)
+//        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "recievedPhoneData"),object: self, userInfo: message)
     }
     
     

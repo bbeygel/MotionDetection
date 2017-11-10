@@ -14,7 +14,7 @@ private let sampleInterval : Double = 1.0 / 50
 class MotionSampler: NSObject {
     
     /// static vars + getters
-    static lazy let shared : MotionSampler()
+    static let shared = MotionSampler()
     
     /// class properties
     weak var delegate: MotionSamplerDelegate?
@@ -26,12 +26,12 @@ class MotionSampler: NSObject {
     var startTime : Date = Date()
     
     
-    private init?() {
+    private override init() {
+        super.init()
         // Checks for motion manager availability
         // else returns nil
-        guard motionManager.isDeviceMotionAvailable == true else {
+        if !motionManager.isDeviceMotionAvailable {
             print("Device Motion is not available.")
-            return nil
         }
         motionManager.deviceMotionUpdateInterval = sampleInterval
         motionQueue.maxConcurrentOperationCount = 1
@@ -43,10 +43,10 @@ class MotionSampler: NSObject {
     // MARK: WorkoutManager
     func startSampling() {
         
-        sharedSampler.motionManager.startGyroUpdates()
-        sharedSampler.motionManager.startMagnetometerUpdates()
-        sharedSampler.motionManager.startAccelerometerUpdates()
-        sharedSampler.motionManager.startDeviceMotionUpdates(to: motionQueue) { (deviceMotion: CMDeviceMotion?, error: Error?) in
+        motionManager.startGyroUpdates()
+        motionManager.startMagnetometerUpdates()
+        motionManager.startAccelerometerUpdates()
+        motionManager.startDeviceMotionUpdates(to: motionQueue) { (deviceMotion: CMDeviceMotion?, error: Error?) in
             if error != nil {
                 print("Encountered error: \(error!)")
             }
@@ -72,7 +72,7 @@ class MotionSampler: NSObject {
     /// Method for parsing motion sample to Sample class
     ///
     /// - Parameter deviceMotion: performed motion
-    func processDeviceMotion(_ deviceMotion: CMDeviceMotion) {
+    internal func processDeviceMotion(_ deviceMotion: CMDeviceMotion) {
         //pull different measurements
         let sample = Sample(data: [
             Date().timeIntervalSince(startTime),
@@ -92,13 +92,12 @@ class MotionSampler: NSObject {
             deviceMotion.magneticField.field.x,
             deviceMotion.magneticField.field.x,
             Double(deviceMotion.magneticField.accuracy.rawValue)])
-            
-            //append row to 2d array of measurements
-            arrSamples.append(sample)
-            
-            if arrSamples.count % 500 == 0 {
-                delegate?.motionSampler(self, storeMotionSamples: arrSamples)
-                arrSamples.removeAll()
+        //append row to 2d array of measurements
+        arrSamples.append(sample)
+        
+        if arrSamples.count % 500 == 0 {
+            delegate?.motionSampler(self, storeMotionSamples: arrSamples)
+            arrSamples.removeAll()
         }
     }
     

@@ -26,7 +26,7 @@ extension AppDelegate : WCSessionDelegate {
     }
     
     func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
-        
+        print ("Activation Completed With state: \(activationState)")
     }
     
     func sessionDidBecomeInactive(_ session: WCSession) {
@@ -37,5 +37,13 @@ extension AppDelegate : WCSessionDelegate {
     func sessionDidDeactivate(_ session: WCSession) {
         print ("watch disconnected from phone")
         // handle disconnection
+    }
+    
+    func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
+        guard let messageObject = message[NotificationMessage.message] else {
+            print ("IPHONE - bad message received : \(message)")
+            return
+        }
+        print (message)
     }
 }

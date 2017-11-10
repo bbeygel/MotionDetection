@@ -21,16 +21,9 @@ class MainInterfaceController: WKInterfaceController {
     
     var reps = 0
     
-    var motionSampler : MotionSampler?
-    let session = WCSession.default
-    
-    func sendToPhone(_ message : NSObject?)
-    {
-        self.session.transferUserInfo
-        self.session.sendMessage(["msg":message], replyHandler: nil, errorHandler: nil)
+    var motionSampler : MotionSampler {
+        return MotionSampler.shared
     }
-    
-    
     
     // MARK: WKInterfaceController
     override func willActivate() {
@@ -45,11 +38,7 @@ class MainInterfaceController: WKInterfaceController {
     
     // MARK: Interface Bindings
     @IBAction func start() {
-        guard let sampler = MotionSampler(startTime : Date(), delegate: self) else {
-            return
-        }
-        motionSampler = sampler
-        motionSampler!.startSampling()
+        motionSampler.startSampling()
         
         startButton.setEnabled(false)
         stopButton.setEnabled(true)
@@ -60,20 +49,16 @@ class MainInterfaceController: WKInterfaceController {
     @IBAction func stop() {
         startButton.setEnabled(true)
         stopButton.setEnabled(false)
-        motionSampler?.stopSampling()
-    }
-    
-    func session(_ session: WCSession,
-                 activationDidCompleteWith activationState: WCSessionActivationState,
-                 error: Error?) {
-        
+        motionSampler.stopSampling()
     }
     
     // MARK: - Motion Sampler Delegates
     func motionSampler(_ sampler: MotionSampler, storeMotionSamples samples: [MotionSampler.Sample]) {
         /// Serialize the property access and UI updates on the main queue.
-        _ = samples.map { return $0.description }
-        self.sendToPhone(nil)
+        AppCommunicator.sendNotification(with: samples as AnyObject) {
+            error in
+            print(error)
+        }
     }
     
     func motionSampler(_ sampler: MotionSampler, updateActionLabel label: String) {
