@@ -10,6 +10,12 @@ import UIKit
 
 class MainTabBarController: UITabBarController {
     
+    var samplesController : SamplesTableViewController {
+        return self.viewControllers?.first as! SamplesTableViewController
+    }
+    var settingsController : SettingsTableViewController {
+        return self.viewControllers?.last as! SettingsTableViewController
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

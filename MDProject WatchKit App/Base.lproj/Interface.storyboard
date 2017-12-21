@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="13770" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Ydq-KP-Bkg">
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="13196" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Ydq-KP-Bkg">
     <device id="watch38" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="watchOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13770"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="13756"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="13051"/>
     </dependencies>
     <scenes>
         <!--Main Interface Controller-->
@@ -16,15 +16,14 @@
                     <items>
                         <group width="1" height="1" alignment="left" layout="vertical" id="1TL-iA-f6J">
                             <items>
-                                <group width="1" height="0.75" alignment="center" layout="vertical" spacing="8" id="ZHl-zQ-gzp">
+                                <group width="1" height="62" alignment="center" layout="vertical" spacing="8" id="ZHl-zQ-gzp">
                                     <items>
                                         <group width="1" alignment="center" verticalAlignment="center" id="2o1-rV-2G7">
                                             <items>
-                                                <label alignment="center" verticalAlignment="center" text="Walking" textAlignment="left" id="W7y-tZ-w1S"/>
+                                                <label alignment="center" verticalAlignment="center" text="Waiting" textAlignment="left" id="W7y-tZ-w1S"/>
                                             </items>
                                             <edgeInsets key="margins" left="0.0" right="0.0" top="0.0" bottom="0.0"/>
                                         </group>
-                                        <timer width="1" alignment="left" verticalAlignment="bottom" textAlignment="center" id="DxC-82-kAh"/>
                                     </items>
                                 </group>
                                 <group width="1" height="0.25" heightAdjustment="1" alignment="left" verticalAlignment="bottom" id="g4v-IG-p9U">
@@ -33,18 +32,24 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="backgroundColor" red="0.29411764709999999" green="0.54117647059999996" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <connections>
-                                                <action selector="start" destination="Ydq-KP-Bkg" id="x4y-ha-y8o"/>
+                                                <action selector="start" destination="Ydq-KP-Bkg" id="Tif-TL-MdR"/>
                                             </connections>
                                         </button>
                                         <button width="0.5" height="1" alignment="right" title="end" id="20R-TR-pro">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="backgroundColor" red="0.97647058819999999" green="0.33333333329999998" blue="0.3294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <connections>
-                                                <action selector="stop" destination="Ydq-KP-Bkg" id="BPw-NI-aJ6"/>
+                                                <action selector="stop" destination="Ydq-KP-Bkg" id="lTs-RG-azC"/>
                                             </connections>
                                         </button>
                                     </items>
                                 </group>
+                                <button width="1" alignment="left" title="Classify" id="RXx-9Q-cEN">
+                                    <color key="backgroundColor" red="1" green="0.61568627450000002" blue="0.066666666669999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <connections>
+                                        <segue destination="MqC-pt-c0n" kind="push" id="J2o-AP-Vv3"/>
+                                    </connections>
+                                </button>
                             </items>
                             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             <edgeInsets key="margins" left="4" right="4" top="4" bottom="4"/>
@@ -52,13 +57,27 @@
                     </items>
                     <connections>
                         <outlet property="lblAction" destination="W7y-tZ-w1S" id="rgO-i2-7K1"/>
-                        <outlet property="lblTimer" destination="DxC-82-kAh" id="unh-T6-JdV"/>
                         <outlet property="startButton" destination="7IP-61-Ug0" id="lAW-JH-Q0e"/>
                         <outlet property="stopButton" destination="20R-TR-pro" id="RP8-UZ-T8f"/>
                     </connections>
                 </controller>
             </objects>
             <point key="canvasLocation" x="220" y="330"/>
+        </scene>
+        <!--Static Notification Interface Controller-->
+        <scene sceneID="EX7-gl-iTV">
+            <objects>
+                <notificationController id="upq-kV-eK6">
+                    <items>
+                        <label alignment="left" text="Alert Label" id="TxM-RC-2Ng"/>
+                    </items>
+                    <notificationCategory key="notificationCategory" id="hKp-zs-8w8"/>
+                    <connections>
+                        <outlet property="notificationAlertLabel" destination="TxM-RC-2Ng" id="2GH-xO-SEP"/>
+                    </connections>
+                </notificationController>
+            </objects>
+            <point key="canvasLocation" x="220" y="633"/>
         </scene>
         <!--Interface Controller-->
         <scene sceneID="9G7-Ds-Bje">

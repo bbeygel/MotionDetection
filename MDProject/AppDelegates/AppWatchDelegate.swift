@@ -40,10 +40,11 @@ extension AppDelegate : WCSessionDelegate {
     }
     
     func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
-        guard let messageObject = message[NotificationMessage.message] else {
+        guard let messageObject = message[NotificationMessage.message] as? [MotionSample] else {
             print ("IPHONE - bad message received : \(message)")
             return
         }
         print (message)
+        mainTabController.samplesController.arrSamples = messageObject
     }
 }

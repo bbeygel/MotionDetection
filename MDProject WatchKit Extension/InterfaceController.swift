@@ -21,8 +21,10 @@ class MainInterfaceController: WKInterfaceController {
     
     var reps = 0
     
-    var motionSampler : MotionSampler {
-        return MotionSampler.shared
+    var workoutManager = TennisMotionWorkoutManager()
+    
+    var motionSampler : PMotionSampler {
+        return workoutManager.sampler
     }
     
     // MARK: WKInterfaceController
@@ -53,19 +55,11 @@ class MainInterfaceController: WKInterfaceController {
     }
     
     // MARK: - Motion Sampler Delegates
-    func motionSampler(_ sampler: MotionSampler, storeMotionSamples samples: [MotionSampler.Sample]) {
+    func motionSampler(_ sampler: PMotionSampler, storeMotionSamples samples: [MotionSample]) {
         /// Serialize the property access and UI updates on the main queue.
         AppCommunicator.sendNotification(with: samples as AnyObject) {
             error in
             print(error)
         }
     }
-    
-    func motionSampler(_ sampler: MotionSampler, updateActionLabel label: String) {
-        
-    }
-    func motionSampler(_ sampler: MotionSampler, updateTimerLabel label: String) {
-        lblTimer.setText(label)
-    }
-
 }

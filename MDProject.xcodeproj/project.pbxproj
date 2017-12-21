@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B440B56C1FB74029005CC9BB /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B440B56B1FB74029005CC9BB /* SettingsTableViewController.swift */; };
+		B440B56E1FB7403A005CC9BB /* SamplesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B440B56D1FB7403A005CC9BB /* SamplesTableViewController.swift */; };
+		B440B56F1FB74067005CC9BB /* MotionSample.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B820B01FB5CF35005EC849 /* MotionSample.swift */; };
+		B46F636C1FE5A8D1002DEDB9 /* TennisMotionWorkoutManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46F636B1FE5A8D1002DEDB9 /* TennisMotionWorkoutManager.swift */; };
+		B46F63701FE5AAF6002DEDB9 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B46F636F1FE5AAF6002DEDB9 /* HealthKit.framework */; };
+		B46F63731FE5AB13002DEDB9 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B46F63721FE5AB13002DEDB9 /* HealthKit.framework */; };
+		B46F63751FE5AE0A002DEDB9 /* PMotionWorkoutManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46F63741FE5AE0A002DEDB9 /* PMotionWorkoutManager.swift */; };
+		B46F63771FE5B423002DEDB9 /* PSamplingBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46F63761FE5B423002DEDB9 /* PSamplingBuffer.swift */; };
 		B4B820751FB5CDB6005EC849 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B820741FB5CDB6005EC849 /* AppDelegate.swift */; };
 		B4B8207A1FB5CDB6005EC849 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4B820781FB5CDB6005EC849 /* Main.storyboard */; };
 		B4B8207C1FB5CDB6005EC849 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B4B8207B1FB5CDB6005EC849 /* Assets.xcassets */; };
@@ -23,11 +31,14 @@
 		B4B820B91FB5D835005EC849 /* AppWatchDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B820B81FB5D835005EC849 /* AppWatchDelegate.swift */; };
 		B4B820BC1FB5DA19005EC849 /* DataSetHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B820BB1FB5DA19005EC849 /* DataSetHandler.swift */; };
 		B4B820BF1FB5DE66005EC849 /* NavigationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B820BE1FB5DE66005EC849 /* NavigationProtocol.swift */; };
-		B4B820C01FB5E21B005EC849 /* MotionSampler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B820AF1FB5CF35005EC849 /* MotionSampler.swift */; };
+		B4B820C01FB5E21B005EC849 /* PMotionSampler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B820AF1FB5CF35005EC849 /* PMotionSampler.swift */; };
 		B4B820C11FB5E21E005EC849 /* MotionSample.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B820B01FB5CF35005EC849 /* MotionSample.swift */; };
 		B4B820C41FB5E3B6005EC849 /* AppCommunicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B820C31FB5E3B6005EC849 /* AppCommunicator.swift */; };
 		B4B820C61FB5E72F005EC849 /* NotificationMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B820C51FB5E72F005EC849 /* NotificationMessage.swift */; };
 		B4B820C71FB5E74A005EC849 /* NotificationMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B820C51FB5E72F005EC849 /* NotificationMessage.swift */; };
+		B4FBA6E81FEACF8B0057ACFD /* TennisMotionSample.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4FBA6E71FEACF8B0057ACFD /* TennisMotionSample.swift */; };
+		B4FBA6EA1FEAD4440057ACFD /* TennisSamplingBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4FBA6E91FEAD4440057ACFD /* TennisSamplingBuffer.swift */; };
+		B4FBA6EC1FEB91680057ACFD /* TennisMotionSampler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4FBA6EB1FEB91680057ACFD /* TennisMotionSampler.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +84,15 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		B440B56B1FB74029005CC9BB /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
+		B440B56D1FB7403A005CC9BB /* SamplesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SamplesTableViewController.swift; sourceTree = "<group>"; };
+		B46F636B1FE5A8D1002DEDB9 /* TennisMotionWorkoutManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TennisMotionWorkoutManager.swift; sourceTree = "<group>"; };
+		B46F636D1FE5AAF6002DEDB9 /* MDProject WatchKit Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "MDProject WatchKit Extension.entitlements"; sourceTree = "<group>"; };
+		B46F636F1FE5AAF6002DEDB9 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS4.2.sdk/System/Library/Frameworks/HealthKit.framework; sourceTree = DEVELOPER_DIR; };
+		B46F63711FE5AB13002DEDB9 /* MDProject.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MDProject.entitlements; sourceTree = "<group>"; };
+		B46F63721FE5AB13002DEDB9 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
+		B46F63741FE5AE0A002DEDB9 /* PMotionWorkoutManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PMotionWorkoutManager.swift; sourceTree = "<group>"; };
+		B46F63761FE5B423002DEDB9 /* PSamplingBuffer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSamplingBuffer.swift; sourceTree = "<group>"; };
 		B4B820711FB5CDB6005EC849 /* MDProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MDProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4B820741FB5CDB6005EC849 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B4B820791FB5CDB6005EC849 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -90,7 +110,7 @@
 		B4B8209D1FB5CDB7005EC849 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B4B8209F1FB5CDB7005EC849 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B4B820A01FB5CDB7005EC849 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
-		B4B820AF1FB5CF35005EC849 /* MotionSampler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionSampler.swift; sourceTree = "<group>"; };
+		B4B820AF1FB5CF35005EC849 /* PMotionSampler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PMotionSampler.swift; sourceTree = "<group>"; };
 		B4B820B01FB5CF35005EC849 /* MotionSample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionSample.swift; sourceTree = "<group>"; };
 		B4B820B11FB5D7E4005EC849 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		B4B820B81FB5D835005EC849 /* AppWatchDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppWatchDelegate.swift; sourceTree = "<group>"; };
@@ -98,6 +118,9 @@
 		B4B820BE1FB5DE66005EC849 /* NavigationProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationProtocol.swift; sourceTree = "<group>"; };
 		B4B820C31FB5E3B6005EC849 /* AppCommunicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCommunicator.swift; sourceTree = "<group>"; };
 		B4B820C51FB5E72F005EC849 /* NotificationMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationMessage.swift; sourceTree = "<group>"; };
+		B4FBA6E71FEACF8B0057ACFD /* TennisMotionSample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TennisMotionSample.swift; sourceTree = "<group>"; };
+		B4FBA6E91FEAD4440057ACFD /* TennisSamplingBuffer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TennisSamplingBuffer.swift; sourceTree = "<group>"; };
+		B4FBA6EB1FEB91680057ACFD /* TennisMotionSampler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TennisMotionSampler.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +128,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B46F63731FE5AB13002DEDB9 /* HealthKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,12 +136,58 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B46F63701FE5AAF6002DEDB9 /* HealthKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B46F63681FE5A596002DEDB9 /* Workout */ = {
+			isa = PBXGroup;
+			children = (
+				B46F63741FE5AE0A002DEDB9 /* PMotionWorkoutManager.swift */,
+				B46F636B1FE5A8D1002DEDB9 /* TennisMotionWorkoutManager.swift */,
+			);
+			path = Workout;
+			sourceTree = "<group>";
+		};
+		B46F636E1FE5AAF6002DEDB9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B46F63721FE5AB13002DEDB9 /* HealthKit.framework */,
+				B46F636F1FE5AAF6002DEDB9 /* HealthKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B46F637A1FE5C765002DEDB9 /* MotionSamples */ = {
+			isa = PBXGroup;
+			children = (
+				B4B820B01FB5CF35005EC849 /* MotionSample.swift */,
+				B4FBA6E71FEACF8B0057ACFD /* TennisMotionSample.swift */,
+			);
+			path = MotionSamples;
+			sourceTree = "<group>";
+		};
+		B46F637B1FE5C76C002DEDB9 /* SamplingBuffers */ = {
+			isa = PBXGroup;
+			children = (
+				B46F63761FE5B423002DEDB9 /* PSamplingBuffer.swift */,
+				B4FBA6E91FEAD4440057ACFD /* TennisSamplingBuffer.swift */,
+			);
+			path = SamplingBuffers;
+			sourceTree = "<group>";
+		};
+		B46F637D1FE5C77E002DEDB9 /* Samplers */ = {
+			isa = PBXGroup;
+			children = (
+				B4B820AF1FB5CF35005EC849 /* PMotionSampler.swift */,
+				B4FBA6EB1FEB91680057ACFD /* TennisMotionSampler.swift */,
+			);
+			path = Samplers;
+			sourceTree = "<group>";
+		};
 		B4B820681FB5CDB6005EC849 = {
 			isa = PBXGroup;
 			children = (
@@ -125,6 +195,7 @@
 				B4B820871FB5CDB7005EC849 /* MDProject WatchKit App */,
 				B4B820961FB5CDB7005EC849 /* MDProject WatchKit Extension */,
 				B4B820721FB5CDB6005EC849 /* Products */,
+				B46F636E1FE5AAF6002DEDB9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -141,6 +212,7 @@
 		B4B820731FB5CDB6005EC849 /* MDProject */ = {
 			isa = PBXGroup;
 			children = (
+				B46F63711FE5AB13002DEDB9 /* MDProject.entitlements */,
 				B4B820BD1FB5DE4C005EC849 /* Protocols */,
 				B4B820BA1FB5DA07005EC849 /* Handlers */,
 				B4B820B71FB5D805005EC849 /* AppDelegates */,
@@ -166,6 +238,8 @@
 		B4B820961FB5CDB7005EC849 /* MDProject WatchKit Extension */ = {
 			isa = PBXGroup;
 			children = (
+				B46F636D1FE5AAF6002DEDB9 /* MDProject WatchKit Extension.entitlements */,
+				B46F63681FE5A596002DEDB9 /* Workout */,
 				B4B820C21FB5E398005EC849 /* Communication */,
 				B4B820AE1FB5CF35005EC849 /* Sampling */,
 				B4B820971FB5CDB7005EC849 /* InterfaceController.swift */,
@@ -181,8 +255,9 @@
 		B4B820AE1FB5CF35005EC849 /* Sampling */ = {
 			isa = PBXGroup;
 			children = (
-				B4B820AF1FB5CF35005EC849 /* MotionSampler.swift */,
-				B4B820B01FB5CF35005EC849 /* MotionSample.swift */,
+				B46F637D1FE5C77E002DEDB9 /* Samplers */,
+				B46F637B1FE5C76C002DEDB9 /* SamplingBuffers */,
+				B46F637A1FE5C765002DEDB9 /* MotionSamples */,
 			);
 			path = Sampling;
 			sourceTree = "<group>";
@@ -191,6 +266,8 @@
 			isa = PBXGroup;
 			children = (
 				B4B820B11FB5D7E4005EC849 /* MainTabBarController.swift */,
+				B440B56B1FB74029005CC9BB /* SettingsTableViewController.swift */,
+				B440B56D1FB7403A005CC9BB /* SamplesTableViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -314,6 +391,14 @@
 					B4B820701FB5CDB6005EC849 = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.HealthKit = {
+								enabled = 1;
+							};
+						};
 					};
 					B4B820821FB5CDB7005EC849 = {
 						CreatedOnToolsVersion = 9.2;
@@ -322,6 +407,14 @@
 					B4B820911FB5CDB7005EC849 = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes.watchos.extension = {
+								enabled = 1;
+							};
+							com.apple.HealthKit.watchos = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -386,6 +479,9 @@
 				B4B820B21FB5D7E5005EC849 /* MainTabBarController.swift in Sources */,
 				B4B820BC1FB5DA19005EC849 /* DataSetHandler.swift in Sources */,
 				B4B820BF1FB5DE66005EC849 /* NavigationProtocol.swift in Sources */,
+				B440B56F1FB74067005CC9BB /* MotionSample.swift in Sources */,
+				B440B56E1FB7403A005CC9BB /* SamplesTableViewController.swift in Sources */,
+				B440B56C1FB74029005CC9BB /* SettingsTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -394,11 +490,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				B4B820C41FB5E3B6005EC849 /* AppCommunicator.swift in Sources */,
-				B4B820C01FB5E21B005EC849 /* MotionSampler.swift in Sources */,
+				B4B820C01FB5E21B005EC849 /* PMotionSampler.swift in Sources */,
 				B4B8209C1FB5CDB7005EC849 /* NotificationController.swift in Sources */,
+				B46F63751FE5AE0A002DEDB9 /* PMotionWorkoutManager.swift in Sources */,
+				B4FBA6EC1FEB91680057ACFD /* TennisMotionSampler.swift in Sources */,
+				B46F636C1FE5A8D1002DEDB9 /* TennisMotionWorkoutManager.swift in Sources */,
 				B4B820C11FB5E21E005EC849 /* MotionSample.swift in Sources */,
+				B4FBA6E81FEACF8B0057ACFD /* TennisMotionSample.swift in Sources */,
+				B4FBA6EA1FEAD4440057ACFD /* TennisSamplingBuffer.swift in Sources */,
 				B4B8209A1FB5CDB7005EC849 /* ExtensionDelegate.swift in Sources */,
 				B4B820981FB5CDB7005EC849 /* InterfaceController.swift in Sources */,
+				B46F63771FE5B423002DEDB9 /* PSamplingBuffer.swift in Sources */,
 				B4B820C71FB5E74A005EC849 /* NotificationMessage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -557,6 +659,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_ENTITLEMENTS = "MDProject WatchKit Extension/MDProject WatchKit Extension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SGDFJZX8EN;
 				INFOPLIST_FILE = "MDProject WatchKit Extension/Info.plist";
@@ -575,6 +678,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_ENTITLEMENTS = "MDProject WatchKit Extension/MDProject WatchKit Extension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SGDFJZX8EN;
 				INFOPLIST_FILE = "MDProject WatchKit Extension/Info.plist";
@@ -594,12 +698,14 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SGDFJZX8EN;
 				IBSC_MODULE = MDProject_WatchKit_Extension;
 				INFOPLIST_FILE = "MDProject WatchKit App/Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bgu.MDProject.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.0;
@@ -613,12 +719,14 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SGDFJZX8EN;
 				IBSC_MODULE = MDProject_WatchKit_Extension;
 				INFOPLIST_FILE = "MDProject WatchKit App/Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bgu.MDProject.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.0;
@@ -631,6 +739,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = MDProject/MDProject.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SGDFJZX8EN;
 				INFOPLIST_FILE = MDProject/Info.plist;
@@ -647,6 +756,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = MDProject/MDProject.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SGDFJZX8EN;
 				INFOPLIST_FILE = MDProject/Info.plist;
