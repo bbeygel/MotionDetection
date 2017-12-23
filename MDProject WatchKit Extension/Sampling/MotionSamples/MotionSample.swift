@@ -10,7 +10,6 @@ import Foundation
 class MotionSample : NSObject {
     
     enum SampleDataType : Int {
-        case timeInterval = 0
         case rotationX
         case rotationY
         case rotationZ
@@ -28,7 +27,6 @@ class MotionSample : NSObject {
         case magneticFieldZ
         case magneticFieldAccuracy
     }
-    var timeInterval :          Double { return data[SampleDataType.timeInterval.rawValue] }
     var rotationX :             Double { return data[SampleDataType.rotationX.rawValue] }
     var rotationY :             Double { return data[SampleDataType.rotationY.rawValue] }
     var rotationZ :             Double { return data[SampleDataType.rotationZ.rawValue] }

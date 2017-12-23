@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreMotion
+import WatchKit
 
 class TennisMotionSampler: PMotionSampler {    
     
@@ -20,7 +21,11 @@ class TennisMotionSampler: PMotionSampler {
         return tennisSamplesBuffer
     }
     
-    var startTime : Date = Date()
+    var latestSampleTime : Date = Date()
+    
+    var watchHandSide : WKInterfaceDeviceWristLocation {
+        return WKInterfaceDevice.current().wristLocation
+    }
     
     init() {
         motionManager.deviceMotionUpdateInterval = sampleInterval
@@ -64,7 +69,7 @@ class TennisMotionSampler: PMotionSampler {
     }
     
     func reset() {
-        
+        latestSampleTime = Date()
     }
     
     /// PMotionSampler - handle sample data from watch
@@ -74,18 +79,39 @@ class TennisMotionSampler: PMotionSampler {
         motionSamplesBuffer.addSample(tSample)
     }
     
-    func handleFullBuffer() {}
+    func handleFullBuffer() {
+        let accumulatedYawRotation = tennisSamplesBuffer.sum * sampleInterval
+        let peakRate = accumulatedYawRotation > 0 ?
+            tennisSamplesBuffer.max : tennisSamplesBuffer.min
+        
+        if accumulatedYawRotation < -yawThreshold,
+            peakRate < -rateThreshold {
+            // Counter clockwise swing.
+            switch watchHandSide{
+            case .left: delegate?.motionSampler(self, didSampleMotion: .backhand, forTime: latestSampleTime); break
+            case .right: delegate?.motionSampler(self, didSampleMotion: .forhand, forTime: latestSampleTime); break
+            }
+            tennisSamplesBuffer.reset()
+        } else if accumulatedYawRotation > yawThreshold,
+            peakRate > rateThreshold {
+            switch watchHandSide {
+            case .left: delegate?.motionSampler(self, didSampleMotion: .forhand, forTime: latestSampleTime); break
+            case .right: delegate?.motionSampler(self, didSampleMotion: .backhand, forTime: latestSampleTime); break
+            }
+            tennisSamplesBuffer.reset()
+        }
+    }
     
     /// Method for parsing motion sample to Sample class
     ///
     /// - Parameter deviceMotion: performed motion
     internal func processDeviceMotion(_ motion: CMDeviceMotion) {
-        guard motionSamplesBuffer.isFull() == false else {
+        guard motionSamplesBuffer.isFull == false else {
             handleFullBuffer()
+            latestSampleTime = Date()
             return
         }
         handleMotionData([
-            Date().timeIntervalSince(startTime),
             motion.rotationRate.x,
             motion.rotationRate.y,
             motion.rotationRate.z,

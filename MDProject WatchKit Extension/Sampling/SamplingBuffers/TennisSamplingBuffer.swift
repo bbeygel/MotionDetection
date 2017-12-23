@@ -9,7 +9,7 @@
 import UIKit
 
 class TennisSamplingBuffer: PSamplingBuffer {
-
+    // FIX: - make the buffer as stack to be able to check last 50 sasmples
     var buffer: [Double] {
         return data.map {
             return  $0.rotationX * $0.gravityX +
@@ -18,13 +18,19 @@ class TennisSamplingBuffer: PSamplingBuffer {
         }
     }
     
-    var data: [MotionSample]
-    var size: Int
+    internal var data: [MotionSample] = [MotionSample]() {
+        didSet {
+            if data.count > size {
+                data.removeLast()
+            }
+        }
+    }
+    internal var size: Int
     
     // MARK: Initialization
     required init(size: Int) {
+        
         self.size = size
-        self.data = [MotionSample](repeating: MotionSample(data: [Double]()), count: self.size)
     }
     
     // MARK: Running Buffer
@@ -37,10 +43,10 @@ class TennisSamplingBuffer: PSamplingBuffer {
     }
     
     func reset() {
-        data.removeAll(keepingCapacity: true)
+        data.removeAll()
     }
     
-    func isFull() -> Bool {
+    var isFull : Bool {
         return size == data.count
     }
     

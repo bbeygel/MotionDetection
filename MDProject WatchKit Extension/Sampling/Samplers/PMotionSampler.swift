@@ -3,6 +3,7 @@ import Foundation
 import CoreMotion
 
 protocol MotionSamplerDelegate : class {
+    func motionSampler(_ sampler : PMotionSampler, didSampleMotion motionType : MotionType, forTime timestamp : Date)    
 }
 
 protocol PMotionSampler : class {

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B418F9631FED3A3200552098 /* MotionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B418F9621FED3A3200552098 /* MotionType.swift */; };
+		B418F9641FED3A3200552098 /* MotionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B418F9621FED3A3200552098 /* MotionType.swift */; };
 		B440B56C1FB74029005CC9BB /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B440B56B1FB74029005CC9BB /* SettingsTableViewController.swift */; };
 		B440B56E1FB7403A005CC9BB /* SamplesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B440B56D1FB7403A005CC9BB /* SamplesTableViewController.swift */; };
 		B440B56F1FB74067005CC9BB /* MotionSample.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B820B01FB5CF35005EC849 /* MotionSample.swift */; };
@@ -23,7 +25,7 @@
 		B4B8208A1FB5CDB7005EC849 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4B820881FB5CDB7005EC849 /* Interface.storyboard */; };
 		B4B8208C1FB5CDB7005EC849 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B4B8208B1FB5CDB7005EC849 /* Assets.xcassets */; };
 		B4B820931FB5CDB7005EC849 /* MDProject WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = B4B820921FB5CDB7005EC849 /* MDProject WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		B4B820981FB5CDB7005EC849 /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B820971FB5CDB7005EC849 /* InterfaceController.swift */; };
+		B4B820981FB5CDB7005EC849 /* TennisInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B820971FB5CDB7005EC849 /* TennisInterfaceController.swift */; };
 		B4B8209A1FB5CDB7005EC849 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B820991FB5CDB7005EC849 /* ExtensionDelegate.swift */; };
 		B4B8209C1FB5CDB7005EC849 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B8209B1FB5CDB7005EC849 /* NotificationController.swift */; };
 		B4B8209E1FB5CDB7005EC849 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B4B8209D1FB5CDB7005EC849 /* Assets.xcassets */; };
@@ -84,6 +86,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		B418F9621FED3A3200552098 /* MotionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionType.swift; sourceTree = "<group>"; };
 		B440B56B1FB74029005CC9BB /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		B440B56D1FB7403A005CC9BB /* SamplesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SamplesTableViewController.swift; sourceTree = "<group>"; };
 		B46F636B1FE5A8D1002DEDB9 /* TennisMotionWorkoutManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TennisMotionWorkoutManager.swift; sourceTree = "<group>"; };
@@ -104,7 +107,7 @@
 		B4B8208B1FB5CDB7005EC849 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B4B8208D1FB5CDB7005EC849 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B4B820921FB5CDB7005EC849 /* MDProject WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "MDProject WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
-		B4B820971FB5CDB7005EC849 /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
+		B4B820971FB5CDB7005EC849 /* TennisInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TennisInterfaceController.swift; sourceTree = "<group>"; };
 		B4B820991FB5CDB7005EC849 /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
 		B4B8209B1FB5CDB7005EC849 /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
 		B4B8209D1FB5CDB7005EC849 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -242,7 +245,7 @@
 				B46F63681FE5A596002DEDB9 /* Workout */,
 				B4B820C21FB5E398005EC849 /* Communication */,
 				B4B820AE1FB5CF35005EC849 /* Sampling */,
-				B4B820971FB5CDB7005EC849 /* InterfaceController.swift */,
+				B4B820971FB5CDB7005EC849 /* TennisInterfaceController.swift */,
 				B4B820991FB5CDB7005EC849 /* ExtensionDelegate.swift */,
 				B4B8209B1FB5CDB7005EC849 /* NotificationController.swift */,
 				B4B8209D1FB5CDB7005EC849 /* Assets.xcassets */,
@@ -276,6 +279,7 @@
 			isa = PBXGroup;
 			children = (
 				B4B820C51FB5E72F005EC849 /* NotificationMessage.swift */,
+				B418F9621FED3A3200552098 /* MotionType.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -476,6 +480,7 @@
 				B4B820B91FB5D835005EC849 /* AppWatchDelegate.swift in Sources */,
 				B4B820751FB5CDB6005EC849 /* AppDelegate.swift in Sources */,
 				B4B820C61FB5E72F005EC849 /* NotificationMessage.swift in Sources */,
+				B418F9631FED3A3200552098 /* MotionType.swift in Sources */,
 				B4B820B21FB5D7E5005EC849 /* MainTabBarController.swift in Sources */,
 				B4B820BC1FB5DA19005EC849 /* DataSetHandler.swift in Sources */,
 				B4B820BF1FB5DE66005EC849 /* NavigationProtocol.swift in Sources */,
@@ -490,6 +495,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B4B820C41FB5E3B6005EC849 /* AppCommunicator.swift in Sources */,
+				B418F9641FED3A3200552098 /* MotionType.swift in Sources */,
 				B4B820C01FB5E21B005EC849 /* PMotionSampler.swift in Sources */,
 				B4B8209C1FB5CDB7005EC849 /* NotificationController.swift in Sources */,
 				B46F63751FE5AE0A002DEDB9 /* PMotionWorkoutManager.swift in Sources */,
@@ -499,7 +505,7 @@
 				B4FBA6E81FEACF8B0057ACFD /* TennisMotionSample.swift in Sources */,
 				B4FBA6EA1FEAD4440057ACFD /* TennisSamplingBuffer.swift in Sources */,
 				B4B8209A1FB5CDB7005EC849 /* ExtensionDelegate.swift in Sources */,
-				B4B820981FB5CDB7005EC849 /* InterfaceController.swift in Sources */,
+				B4B820981FB5CDB7005EC849 /* TennisInterfaceController.swift in Sources */,
 				B46F63771FE5B423002DEDB9 /* PSamplingBuffer.swift in Sources */,
 				B4B820C71FB5E74A005EC849 /* NotificationMessage.swift in Sources */,
 			);

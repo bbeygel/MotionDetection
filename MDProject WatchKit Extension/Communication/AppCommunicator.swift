@@ -17,7 +17,7 @@ struct AppCommunicator {
     /// - Returns: did secceed sending data
     static func sendNotification(with data : AnyObject?, errorHandler : @escaping ((Error) -> Void)) {
         /// Checks if data and connection are valid
-        guard let message = data as? Any,
+        guard let message = data,
             WCSession.default.isReachable else {
                 print ("data wasn't send due to lack of data of lack of connection...obviously")
                 return

@@ -1,114 +1,72 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="13196" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Ydq-KP-Bkg">
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="13771" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="0IL-9L-bG3">
     <device id="watch38" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="watchOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="13051"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="13756"/>
     </dependencies>
     <scenes>
-        <!--Main Interface Controller-->
-        <scene sceneID="iYP-Hy-XZ1">
+        <!--Tennis Interface Controller-->
+        <scene sceneID="cXp-1s-Qog">
             <objects>
-                <controller id="Ydq-KP-Bkg" customClass="MainInterfaceController" customModule="MDProject_WatchKit_Extension">
+                <controller id="0IL-9L-bG3" customClass="TennisInterfaceController" customModule="MDProject_WatchKit_Extension">
                     <items>
-                        <group width="1" height="1" alignment="left" layout="vertical" id="1TL-iA-f6J">
-                            <items>
-                                <group width="1" height="62" alignment="center" layout="vertical" spacing="8" id="ZHl-zQ-gzp">
-                                    <items>
-                                        <group width="1" alignment="center" verticalAlignment="center" id="2o1-rV-2G7">
-                                            <items>
-                                                <label alignment="center" verticalAlignment="center" text="Waiting" textAlignment="left" id="W7y-tZ-w1S"/>
-                                            </items>
-                                            <edgeInsets key="margins" left="0.0" right="0.0" top="0.0" bottom="0.0"/>
-                                        </group>
-                                    </items>
-                                </group>
-                                <group width="1" height="0.25" heightAdjustment="1" alignment="left" verticalAlignment="bottom" id="g4v-IG-p9U">
-                                    <items>
-                                        <button width="0.5" height="1" alignment="left" title="start" id="7IP-61-Ug0">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <color key="backgroundColor" red="0.29411764709999999" green="0.54117647059999996" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <connections>
-                                                <action selector="start" destination="Ydq-KP-Bkg" id="Tif-TL-MdR"/>
-                                            </connections>
-                                        </button>
-                                        <button width="0.5" height="1" alignment="right" title="end" id="20R-TR-pro">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <color key="backgroundColor" red="0.97647058819999999" green="0.33333333329999998" blue="0.3294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <connections>
-                                                <action selector="stop" destination="Ydq-KP-Bkg" id="lTs-RG-azC"/>
-                                            </connections>
-                                        </button>
-                                    </items>
-                                </group>
-                                <button width="1" alignment="left" title="Classify" id="RXx-9Q-cEN">
-                                    <color key="backgroundColor" red="1" green="0.61568627450000002" blue="0.066666666669999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <connections>
-                                        <segue destination="MqC-pt-c0n" kind="push" id="J2o-AP-Vv3"/>
-                                    </connections>
-                                </button>
-                            </items>
-                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                            <edgeInsets key="margins" left="4" right="4" top="4" bottom="4"/>
-                        </group>
+                        <label height="23" alignment="left" text="Force Touch to Begin" textAlignment="center" id="OhF-bz-Xy0" userLabel="TitleLabel">
+                            <fontDescription key="font" style="UICTFontTextStyleBody"/>
+                        </label>
+                        <label width="106" alignment="left" text="Forehand:" id="GcR-Zp-zRa" userLabel="ForehandLabel"/>
+                        <label alignment="left" text="0" id="JPl-ky-Ttk" userLabel="ForehandCount"/>
+                        <label alignment="left" text="Backhand:" id="Jcj-jw-NoA" userLabel="BackhandLabel"/>
+                        <label alignment="left" text="0" id="rU0-oP-oeG" userLabel="BackhandCount"/>
                     </items>
+                    <menu key="menu" id="3kO-dd-O3i">
+                        <items>
+                            <menuItem title="Start Workout" icon="accept" id="PxO-Cn-GlX">
+                                <connections>
+                                    <action selector="start" destination="0IL-9L-bG3" id="cLE-Ps-nTX"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Stop Workout" icon="decline" id="u6y-uA-LYq">
+                                <connections>
+                                    <action selector="stop" destination="0IL-9L-bG3" id="a6g-zb-Mhz"/>
+                                </connections>
+                            </menuItem>
+                        </items>
+                    </menu>
                     <connections>
-                        <outlet property="lblAction" destination="W7y-tZ-w1S" id="rgO-i2-7K1"/>
-                        <outlet property="startButton" destination="7IP-61-Ug0" id="lAW-JH-Q0e"/>
-                        <outlet property="stopButton" destination="20R-TR-pro" id="RP8-UZ-T8f"/>
+                        <outlet property="backhandCountLabel" destination="rU0-oP-oeG" id="hDM-YY-xRZ"/>
+                        <outlet property="forehandCountLabel" destination="JPl-ky-Ttk" id="MRC-0v-Ha9"/>
+                        <outlet property="titleLabel" destination="OhF-bz-Xy0" id="gHt-OX-9iR"/>
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="220" y="330"/>
+            <point key="canvasLocation" x="219" y="344"/>
         </scene>
         <!--Static Notification Interface Controller-->
-        <scene sceneID="EX7-gl-iTV">
+        <scene sceneID="SEm-Kz-hTl">
             <objects>
-                <notificationController id="upq-kV-eK6">
+                <notificationController id="iQO-cs-OEh">
                     <items>
-                        <label alignment="left" text="Alert Label" id="TxM-RC-2Ng"/>
+                        <label alignment="left" text="Alert Label" id="dbr-rn-hBo"/>
                     </items>
-                    <notificationCategory key="notificationCategory" id="hKp-zs-8w8"/>
+                    <notificationCategory key="notificationCategory" identifier="myCategory" id="0nv-9x-Ej0"/>
                     <connections>
-                        <outlet property="notificationAlertLabel" destination="TxM-RC-2Ng" id="2GH-xO-SEP"/>
+                        <outlet property="notificationAlertLabel" destination="dbr-rn-hBo" id="sSL-Sd-FCC"/>
+                        <segue destination="cgR-ag-vq2" kind="relationship" relationship="dynamicNotificationInterface" id="hdc-d2-PSw"/>
                     </connections>
                 </notificationController>
             </objects>
-            <point key="canvasLocation" x="220" y="633"/>
+            <point key="canvasLocation" x="220" y="643"/>
         </scene>
-        <!--Interface Controller-->
-        <scene sceneID="9G7-Ds-Bje">
+        <!--Notification Controller-->
+        <scene sceneID="TG9-W9-TLW">
             <objects>
-                <controller id="MqC-pt-c0n">
-                    <items>
-                        <group width="1" alignment="left" id="8Le-FY-73b">
-                            <items>
-                                <group width="0.33000000000000002" alignment="left" id="nm4-P1-YT2"/>
-                                <group width="0.33000000000000002" alignment="left" id="rJ2-vM-gfC"/>
-                                <group width="0.33000000000000002" alignment="left" id="dff-Ph-UXj"/>
-                            </items>
-                        </group>
-                        <group width="1" alignment="left" id="060-Jw-HNt">
-                            <items>
-                                <group width="0.33000000000000002" alignment="left" id="qEv-OE-6Dw"/>
-                                <group width="0.33000000000000002" alignment="left" id="omv-DE-WR5"/>
-                                <group width="0.33000000000000002" alignment="left" id="fGO-iS-fI7"/>
-                            </items>
-                        </group>
-                        <group width="1" alignment="left" id="Fq5-46-hd8">
-                            <items>
-                                <group width="0.33000000000000002" alignment="left" id="fGR-2k-yVg"/>
-                                <group width="0.33000000000000002" alignment="left" id="jx7-TX-9hD"/>
-                                <group width="0.33000000000000002" alignment="left" id="Czn-ZX-GhQ"/>
-                            </items>
-                        </group>
-                    </items>
-                </controller>
+                <controller id="cgR-ag-vq2" customClass="NotificationController" customModule="MDProject_WatchKit_Extension"/>
             </objects>
-            <point key="canvasLocation" x="468" y="330"/>
+            <point key="canvasLocation" x="468" y="643"/>
         </scene>
     </scenes>
 </document>
