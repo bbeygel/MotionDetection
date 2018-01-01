@@ -26,7 +26,7 @@ extension AppDelegate : WCSessionDelegate {
     }
     
     func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
-        print ("Activation Completed With state: \(activationState)")
+        print ("Activation Completed With state: \(activationState.rawValue)")
     }
     
     func sessionDidBecomeInactive(_ session: WCSession) {
@@ -40,11 +40,13 @@ extension AppDelegate : WCSessionDelegate {
     }
     
     func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
-        guard let messageObject = message[NotificationMessage.message] as? [MotionSample] else {
+        guard let messageObject = message[NotificationMessage.message] as? String else {
             print ("IPHONE - bad message received : \(message)")
             return
         }
         print (message)
-        mainTabController.samplesController.arrSamples = messageObject
+        DispatchQueue.main.async {
+            self.testViewController.lblActionType.text = messageObject
+        }
     }
 }

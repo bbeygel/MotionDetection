@@ -41,6 +41,10 @@ class TennisSamplingBuffer: PSamplingBuffer {
             data.removeLast()
         }
     }
+    func removeLastSample() {
+        data.removeLast()
+    }
+    
     
     func reset() {
         data.removeAll()

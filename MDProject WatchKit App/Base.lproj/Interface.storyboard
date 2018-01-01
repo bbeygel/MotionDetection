@@ -64,9 +64,13 @@
         <!--Notification Controller-->
         <scene sceneID="TG9-W9-TLW">
             <objects>
-                <controller id="cgR-ag-vq2" customClass="NotificationController" customModule="MDProject_WatchKit_Extension"/>
+                <controller id="cgR-ag-vq2" customClass="NotificationController" customModule="MDProject_WatchKit_Extension">
+                    <items>
+                        <label alignment="left" text="Notification" id="5gE-0s-zFe"/>
+                    </items>
+                </controller>
             </objects>
-            <point key="canvasLocation" x="468" y="643"/>
+            <point key="canvasLocation" x="533" y="643"/>
         </scene>
     </scenes>
 </document>

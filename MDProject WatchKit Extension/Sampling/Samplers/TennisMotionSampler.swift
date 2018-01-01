@@ -83,7 +83,7 @@ class TennisMotionSampler: PMotionSampler {
         let accumulatedYawRotation = tennisSamplesBuffer.sum * sampleInterval
         let peakRate = accumulatedYawRotation > 0 ?
             tennisSamplesBuffer.max : tennisSamplesBuffer.min
-        
+        var recentDetection = true
         if accumulatedYawRotation < -yawThreshold,
             peakRate < -rateThreshold {
             // Counter clockwise swing.
@@ -99,6 +99,14 @@ class TennisMotionSampler: PMotionSampler {
             case .right: delegate?.motionSampler(self, didSampleMotion: .backhand, forTime: latestSampleTime); break
             }
             tennisSamplesBuffer.reset()
+        } else {
+            recentDetection = false
+        }
+        
+        if recentDetection,
+            abs(tennisSamplesBuffer.recentMean) < resetThreshold {
+            recentDetection = false
+            tennisSamplesBuffer.reset()
         }
     }
     
@@ -106,11 +114,7 @@ class TennisMotionSampler: PMotionSampler {
     ///
     /// - Parameter deviceMotion: performed motion
     internal func processDeviceMotion(_ motion: CMDeviceMotion) {
-        guard motionSamplesBuffer.isFull == false else {
-            handleFullBuffer()
-            latestSampleTime = Date()
-            return
-        }
+        
         handleMotionData([
             motion.rotationRate.x,
             motion.rotationRate.y,
@@ -128,5 +132,11 @@ class TennisMotionSampler: PMotionSampler {
             motion.magneticField.field.x,
             motion.magneticField.field.x,
             Double(motion.magneticField.accuracy.rawValue)])
+        
+        if motionSamplesBuffer.isFull {
+            handleFullBuffer()
+            latestSampleTime = Date()
+            return
+        }
     }
 }

@@ -15,17 +15,22 @@ struct AppCommunicator {
     ///
     /// - Parameter data: stream to send to phone
     /// - Returns: did secceed sending data
-    static func sendNotification(with data : AnyObject?, errorHandler : @escaping ((Error) -> Void)) {
+    static func sendNotification(with data : String?, errorHandler : @escaping ((Error) -> Void)) {
         /// Checks if data and connection are valid
         guard let message = data,
+            WCSession.isSupported(),
             WCSession.default.isReachable else {
                 print ("data wasn't send due to lack of data of lack of connection...obviously")
                 return
         }
         // sends messages with callbacks
-        WCSession.default.sendMessage([NotificationMessage.message : message], replyHandler: {
-            message in
-            print ("Received Message To Watch : \(message)")
-        }, errorHandler: errorHandler)
+        // replyHandler should not be implemented!!!
+        WCSession.default.sendMessage([NotificationMessage.message : message], replyHandler: nil, errorHandler: {
+        error in
+            self.errorHandler(error: error as NSError, errorHandler)
+        })
+    }
+    static func errorHandler(error: NSError, _ callback: ((Error)->Void)?) {
+        print("Error Code: \(error.code)\n\(error.localizedDescription)")
     }
 }

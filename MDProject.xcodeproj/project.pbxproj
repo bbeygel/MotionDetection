@@ -17,6 +17,7 @@
 		B46F63731FE5AB13002DEDB9 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B46F63721FE5AB13002DEDB9 /* HealthKit.framework */; };
 		B46F63751FE5AE0A002DEDB9 /* PMotionWorkoutManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46F63741FE5AE0A002DEDB9 /* PMotionWorkoutManager.swift */; };
 		B46F63771FE5B423002DEDB9 /* PSamplingBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46F63761FE5B423002DEDB9 /* PSamplingBuffer.swift */; };
+		B47011731FFA8247008BC745 /* TestingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47011721FFA8247008BC745 /* TestingViewController.swift */; };
 		B4B820751FB5CDB6005EC849 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B820741FB5CDB6005EC849 /* AppDelegate.swift */; };
 		B4B8207A1FB5CDB6005EC849 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4B820781FB5CDB6005EC849 /* Main.storyboard */; };
 		B4B8207C1FB5CDB6005EC849 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B4B8207B1FB5CDB6005EC849 /* Assets.xcassets */; };
@@ -96,6 +97,7 @@
 		B46F63721FE5AB13002DEDB9 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		B46F63741FE5AE0A002DEDB9 /* PMotionWorkoutManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PMotionWorkoutManager.swift; sourceTree = "<group>"; };
 		B46F63761FE5B423002DEDB9 /* PSamplingBuffer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSamplingBuffer.swift; sourceTree = "<group>"; };
+		B47011721FFA8247008BC745 /* TestingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingViewController.swift; sourceTree = "<group>"; };
 		B4B820711FB5CDB6005EC849 /* MDProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MDProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4B820741FB5CDB6005EC849 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B4B820791FB5CDB6005EC849 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -271,6 +273,7 @@
 				B4B820B11FB5D7E4005EC849 /* MainTabBarController.swift */,
 				B440B56B1FB74029005CC9BB /* SettingsTableViewController.swift */,
 				B440B56D1FB7403A005CC9BB /* SamplesTableViewController.swift */,
+				B47011721FFA8247008BC745 /* TestingViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -484,6 +487,7 @@
 				B4B820B21FB5D7E5005EC849 /* MainTabBarController.swift in Sources */,
 				B4B820BC1FB5DA19005EC849 /* DataSetHandler.swift in Sources */,
 				B4B820BF1FB5DE66005EC849 /* NavigationProtocol.swift in Sources */,
+				B47011731FFA8247008BC745 /* TestingViewController.swift in Sources */,
 				B440B56F1FB74067005CC9BB /* MotionSample.swift in Sources */,
 				B440B56E1FB7403A005CC9BB /* SamplesTableViewController.swift in Sources */,
 				B440B56C1FB74029005CC9BB /* SettingsTableViewController.swift in Sources */,

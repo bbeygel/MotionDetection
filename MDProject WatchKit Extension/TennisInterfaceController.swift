@@ -14,7 +14,7 @@ class TennisInterfaceController: WKInterfaceController, WorkoutManagerDelegate {
     
     // MARK: Properties
     
-    let workoutManager = TennisMotionWorkoutManager()
+    let workoutManager = TennisMotionWorkoutManager.shared
     var active = false
     var forehandCount = 0
     var backhandCount = 0

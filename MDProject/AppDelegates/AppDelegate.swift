@@ -15,6 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         setupWatchSession()
+        application.isIdleTimerDisabled = true
         return true
     }
 
@@ -46,5 +47,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 extension AppDelegate {
     var mainTabController : MainTabBarController {
         return window?.rootViewController as! MainTabBarController
+    }
+    var testViewController : TestingViewController {
+        return window?.rootViewController as! TestingViewController
     }
 }
