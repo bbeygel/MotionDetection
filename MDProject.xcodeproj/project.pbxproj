@@ -39,6 +39,7 @@
 		B4B820C41FB5E3B6005EC849 /* AppCommunicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B820C31FB5E3B6005EC849 /* AppCommunicator.swift */; };
 		B4B820C61FB5E72F005EC849 /* NotificationMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B820C51FB5E72F005EC849 /* NotificationMessage.swift */; };
 		B4B820C71FB5E74A005EC849 /* NotificationMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B820C51FB5E72F005EC849 /* NotificationMessage.swift */; };
+		B4CFB1FE200A237F00729154 /* MainInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4CFB1FD200A237F00729154 /* MainInterfaceController.swift */; };
 		B4FBA6E81FEACF8B0057ACFD /* TennisMotionSample.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4FBA6E71FEACF8B0057ACFD /* TennisMotionSample.swift */; };
 		B4FBA6EA1FEAD4440057ACFD /* TennisSamplingBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4FBA6E91FEAD4440057ACFD /* TennisSamplingBuffer.swift */; };
 		B4FBA6EC1FEB91680057ACFD /* TennisMotionSampler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4FBA6EB1FEB91680057ACFD /* TennisMotionSampler.swift */; };
@@ -123,6 +124,7 @@
 		B4B820BE1FB5DE66005EC849 /* NavigationProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationProtocol.swift; sourceTree = "<group>"; };
 		B4B820C31FB5E3B6005EC849 /* AppCommunicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCommunicator.swift; sourceTree = "<group>"; };
 		B4B820C51FB5E72F005EC849 /* NotificationMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationMessage.swift; sourceTree = "<group>"; };
+		B4CFB1FD200A237F00729154 /* MainInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainInterfaceController.swift; sourceTree = "<group>"; };
 		B4FBA6E71FEACF8B0057ACFD /* TennisMotionSample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TennisMotionSample.swift; sourceTree = "<group>"; };
 		B4FBA6E91FEAD4440057ACFD /* TennisSamplingBuffer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TennisSamplingBuffer.swift; sourceTree = "<group>"; };
 		B4FBA6EB1FEB91680057ACFD /* TennisMotionSampler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TennisMotionSampler.swift; sourceTree = "<group>"; };
@@ -247,6 +249,7 @@
 				B46F63681FE5A596002DEDB9 /* Workout */,
 				B4B820C21FB5E398005EC849 /* Communication */,
 				B4B820AE1FB5CF35005EC849 /* Sampling */,
+				B4CFB1FD200A237F00729154 /* MainInterfaceController.swift */,
 				B4B820971FB5CDB7005EC849 /* TennisInterfaceController.swift */,
 				B4B820991FB5CDB7005EC849 /* ExtensionDelegate.swift */,
 				B4B8209B1FB5CDB7005EC849 /* NotificationController.swift */,
@@ -498,6 +501,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B4CFB1FE200A237F00729154 /* MainInterfaceController.swift in Sources */,
 				B4B820C41FB5E3B6005EC849 /* AppCommunicator.swift in Sources */,
 				B418F9641FED3A3200552098 /* MotionType.swift in Sources */,
 				B4B820C01FB5E21B005EC849 /* PMotionSampler.swift in Sources */,

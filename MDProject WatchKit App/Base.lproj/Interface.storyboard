@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="13771" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="0IL-9L-bG3">
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="13771" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Ylc-JS-A29">
     <device id="watch38" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -9,10 +9,47 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="13756"/>
     </dependencies>
     <scenes>
-        <!--Tennis Interface Controller-->
+        <!--Main Interface Controller-->
+        <scene sceneID="ifx-Gc-VdK">
+            <objects>
+                <controller id="Ylc-JS-A29" customClass="MainInterfaceController" customModule="MDProject_WatchKit_Extension">
+                    <items>
+                        <group width="1" height="1" alignment="center" verticalAlignment="center" layout="vertical" id="lDc-d1-JGp">
+                            <items>
+                                <group width="1" height="0.69999999999999996" alignment="center" id="hMT-sU-aug">
+                                    <items>
+                                        <label alignment="center" verticalAlignment="center" text="Welcome to BGU MotionDetection" numberOfLines="0" id="nUt-h7-pOL"/>
+                                    </items>
+                                </group>
+                                <group width="1" height="0.29999999999999999" alignment="left" id="3Ar-HW-fvr">
+                                    <items>
+                                        <button width="0.5" height="1" alignment="left" title="Play" id="7j7-qZ-yQ5">
+                                            <color key="backgroundColor" red="0.27450980390000002" green="0.76862745099999996" blue="0.71764705880000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <fontDescription key="font" type="system" pointSize="13"/>
+                                            <connections>
+                                                <segue destination="0IL-9L-bG3" kind="modal" identifier="s_play" id="SMN-tu-VMr"/>
+                                            </connections>
+                                        </button>
+                                        <button width="0.5" height="1" alignment="left" title="Sample" id="oQf-Uv-Wto">
+                                            <color key="backgroundColor" red="0.96470588239999999" green="0.43529411759999997" blue="0.36470588240000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <fontDescription key="font" type="system" pointSize="13"/>
+                                            <connections>
+                                                <segue destination="0IL-9L-bG3" kind="modal" identifier="s_sample" id="04z-LU-rUk"/>
+                                            </connections>
+                                        </button>
+                                    </items>
+                                </group>
+                            </items>
+                        </group>
+                    </items>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="-151" y="329"/>
+        </scene>
+        <!--workout_main-->
         <scene sceneID="cXp-1s-Qog">
             <objects>
-                <controller id="0IL-9L-bG3" customClass="TennisInterfaceController" customModule="MDProject_WatchKit_Extension">
+                <controller identifier="workout_main" id="0IL-9L-bG3" customClass="TennisInterfaceController" customModule="MDProject_WatchKit_Extension">
                     <items>
                         <label height="23" alignment="left" text="Force Touch to Begin" textAlignment="center" id="OhF-bz-Xy0" userLabel="TitleLabel">
                             <fontDescription key="font" style="UICTFontTextStyleBody"/>
@@ -24,16 +61,17 @@
                     </items>
                     <menu key="menu" id="3kO-dd-O3i">
                         <items>
-                            <menuItem title="Start Workout" icon="accept" id="PxO-Cn-GlX">
+                            <menuItem title="Start Workout" icon="play" id="PxO-Cn-GlX">
                                 <connections>
                                     <action selector="start" destination="0IL-9L-bG3" id="cLE-Ps-nTX"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Stop Workout" icon="decline" id="u6y-uA-LYq">
+                            <menuItem title="Stop Workout" icon="pause" id="u6y-uA-LYq">
                                 <connections>
                                     <action selector="stop" destination="0IL-9L-bG3" id="a6g-zb-Mhz"/>
                                 </connections>
                             </menuItem>
+                            <menuItem title="Exit Workout" icon="decline" id="d9K-XZ-Aq0" userLabel="Exit Workout"/>
                         </items>
                     </menu>
                     <connections>
@@ -73,4 +111,7 @@
             <point key="canvasLocation" x="533" y="643"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="04z-LU-rUk"/>
+    </inferredMetricsTieBreakers>
 </document>

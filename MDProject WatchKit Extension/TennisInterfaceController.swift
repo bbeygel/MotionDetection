@@ -18,6 +18,7 @@ class TennisInterfaceController: WKInterfaceController, WorkoutManagerDelegate {
     var active = false
     var forehandCount = 0
     var backhandCount = 0
+    var context : MainInterfaceController.ContextType!
     
     // MARK: Interface Properties
     
@@ -29,16 +30,17 @@ class TennisInterfaceController: WKInterfaceController, WorkoutManagerDelegate {
     
     override init() {
         super.init()
-        
         workoutManager.delegate = self
     }
     
     // MARK: WKInterfaceController
+    override func awake(withContext context: Any?) {
+        self.context = context as? MainInterfaceController.ContextType
+    }
     
     override func willActivate() {
         super.willActivate()
         active = true
-        
         // On re-activation, update with the cached values.
         updateLabels()
     }
