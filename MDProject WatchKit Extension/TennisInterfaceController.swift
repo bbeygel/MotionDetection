@@ -36,6 +36,7 @@ class TennisInterfaceController: WKInterfaceController, WorkoutManagerDelegate {
     // MARK: WKInterfaceController
     override func awake(withContext context: Any?) {
         self.context = context as? MainInterfaceController.ContextType
+        workoutManager.isSampling = self.context == .sample
     }
     
     override func willActivate() {
@@ -63,12 +64,14 @@ class TennisInterfaceController: WKInterfaceController, WorkoutManagerDelegate {
     }
     
     // MARK: WorkoutManagerDelegate    
-    func didPerformMotion(_ motion: MotionType) {
-        switch motion {
+    func didPerformMotion(_ motionType: MotionType) {
+        switch motionType {
         case .backhand:
-            self.backhandCount += 1
+            self.backhandCount += 1; break
         case .forhand:
-            self.forehandCount += 1
+            self.forehandCount += 1; break
+        case .none:
+            break
         }
         self.updateLabels()
     }

@@ -17,18 +17,24 @@ class TennisMotionWorkoutManager : PMotionWorkoutManager {
     let healthStore = HKHealthStore()
     var session : HKWorkoutSession?
     var sampler: PMotionSampler = TennisMotionSampler()
+    var isSampling : Bool! {
+        didSet {
+            (sampler as? TennisMotionSampler)?.isSampling = isSampling
+        }
+    }
     
-    var sampledMotions = [Date : MotionType]()
+    var sampledMotions = [TennisMLSample]()
+    
     var forhandCount : Int {
         return sampledMotions.filter{
-            (key : Date, value: MotionType) -> Bool in
-            return value == .forhand
+            (sample: TennisMLSample) -> Bool in
+            return sample.classification == MotionType.forhand.rawValue
             }.count
     }
     var backhandCount : Int {
         return sampledMotions.filter{
-            (key,value) -> Bool in
-            return value == .backhand
+            (sample: TennisMLSample) -> Bool in
+            return sample.classification == MotionType.backhand.rawValue
             }.count
     }
     private init() {
@@ -41,18 +47,25 @@ class TennisMotionWorkoutManager : PMotionWorkoutManager {
     
     func stopWorkout() {
         sampler.stopSampling()
+        AppCommunicator.sendNotification(with: sampledMotions.map { return $0.asRawObject } as AnyObject) {
+            error in
+            print(error.localizedDescription)
+        }
     }
 }
 
 
 // MARK: - MotionSampler delegate functions
 extension TennisMotionWorkoutManager {
-    func motionSampler(_ sampler: PMotionSampler, didSampleMotion motionType: MotionType, forTime timestamp: Date) {
-        self.sampledMotions[timestamp] = motionType
-        self.delegate?.didPerformMotion(motionType)
-        AppCommunicator.sendNotification(with: motionType.rawValue) {
-            error in
-            print(error.localizedDescription)
+    func motionSampler(_ sampler: PMotionSampler, didSampleMotion motion: PMLMotion) {
+        guard let lastTennisMotion = motion as? TennisMLSample else { return }
+        sampledMotions.append(lastTennisMotion)
+        self.delegate?.didPerformMotion(MotionType(rawValue:lastTennisMotion.classification)!)
+        if !isSampling {
+            AppCommunicator.sendNotification(with: lastTennisMotion.asRawObject as AnyObject) {
+                error in
+                print(error.localizedDescription)
+            }
         }
     }
 }

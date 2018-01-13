@@ -10,7 +10,7 @@ import UIKit
 import HealthKit
 
 protocol WorkoutManagerDelegate : class {
-    func didPerformMotion(_ motion : MotionType)
+    func didPerformMotion(_ motionType : MotionType)
 }
 protocol PMotionWorkoutManager : MotionSamplerDelegate {
     

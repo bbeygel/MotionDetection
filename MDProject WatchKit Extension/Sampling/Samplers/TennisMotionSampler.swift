@@ -20,7 +20,7 @@ class TennisMotionSampler: PMotionSampler {
     var motionSamplesBuffer: PSamplingBuffer {
         return tennisSamplesBuffer
     }
-    
+    var isSampling : Bool!
     var latestSampleTime : Date = Date()
     
     var watchHandSide : WKInterfaceDeviceWristLocation {
@@ -80,27 +80,13 @@ class TennisMotionSampler: PMotionSampler {
     }
     
     func handleFullBuffer() {
-        let accumulatedYawRotation = tennisSamplesBuffer.sum * sampleInterval
-        let peakRate = accumulatedYawRotation > 0 ?
-            tennisSamplesBuffer.max : tennisSamplesBuffer.min
+        let tennisMLSample = tennisSamplesBuffer.calculateMLSampleData(for: watchHandSide.rawValue)
         var recentDetection = true
-        if accumulatedYawRotation < -yawThreshold,
-            peakRate < -rateThreshold {
-            // Counter clockwise swing.
-            switch watchHandSide{
-            case .left: delegate?.motionSampler(self, didSampleMotion: .backhand, forTime: latestSampleTime); break
-            case .right: delegate?.motionSampler(self, didSampleMotion: .forhand, forTime: latestSampleTime); break
-            }
-            tennisSamplesBuffer.reset()
-        } else if accumulatedYawRotation > yawThreshold,
-            peakRate > rateThreshold {
-            switch watchHandSide {
-            case .left: delegate?.motionSampler(self, didSampleMotion: .forhand, forTime: latestSampleTime); break
-            case .right: delegate?.motionSampler(self, didSampleMotion: .backhand, forTime: latestSampleTime); break
-            }
-            tennisSamplesBuffer.reset()
-        } else {
+        
+        if tennisMLSample.classification == .none, !isSampling {
             recentDetection = false
+        } else {
+            delegate?.motionSampler(self, didSampleMotion: tennisMLSample)
         }
         
         if recentDetection,

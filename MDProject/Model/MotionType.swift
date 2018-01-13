@@ -8,7 +8,8 @@
 
 import UIKit
 
-enum MotionType: String {
-    case forhand = "tennis_forhand"
-    case backhand = "tennis_backhand"
+enum MotionType: Int {
+    case none = -1
+    case backhand = 0
+    case forhand = 1
 }

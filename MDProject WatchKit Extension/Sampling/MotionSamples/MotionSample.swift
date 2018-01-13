@@ -7,6 +7,91 @@
 //
 
 import Foundation
+protocol PMLMotion : class {
+    var features : [String] { get }
+    var values : [Any] { get }
+    init(features : [String], values: [Any])
+}
+
+class TennisMLSample : PMLMotion {
+    var features: [String] {
+        get {
+            return Feature.all
+        }
+    }
+    
+    var values: [Any] {
+        get {
+            return [hand,peakRate,passedYawTreshold,passedNegativeYawTreshold,passedPeakRateThreshold,passedNegativePeakRateThreshold,classification]
+        }
+    }
+    
+    struct Feature {
+        static let HAND = "hand"
+        static let PEAK_RATE = "peakRate"
+        static let YAW_THRESH = "passedYawTreshold"
+        static let NEG_YAW_THRESH = "passedNegativeYawTreshold"
+        static let PEAK_THRESH = "passedPeakRateThreshold"
+        static let NEG_PEAK_THRESH = "passedNegativePeakRateThreshold"
+        static let CLASSIFICATION = "classification"
+        static var all : [String] {
+            return [HAND,PEAK_RATE,YAW_THRESH,NEG_YAW_THRESH,PEAK_THRESH,NEG_PEAK_THRESH,CLASSIFICATION]
+        }
+    }
+    
+    var hand : Int!
+    var peakRate : Double!
+    var passedYawTreshold : Bool!
+    var passedNegativeYawTreshold : Bool!
+    var passedPeakRateThreshold : Bool!
+    var passedNegativePeakRateThreshold : Bool!
+    var classification : Int!
+    
+    
+    required init(features: [String], values: [Any]) {
+        for feature in features {
+            let featureIndex = features.index(of: feature)!
+            let value = values[featureIndex]
+            switch feature {
+            case Feature.HAND: hand = value as! Int; break
+            case Feature.PEAK_RATE: peakRate = value as! Double; break
+            case Feature.YAW_THRESH: passedYawTreshold = value as! Bool; break
+            case Feature.NEG_YAW_THRESH: passedNegativeYawTreshold = value as! Bool; break
+            case Feature.PEAK_THRESH: passedPeakRateThreshold = value as! Bool ; break
+            case Feature.NEG_PEAK_THRESH: passedNegativePeakRateThreshold = value as! Bool; break
+            case Feature.CLASSIFICATION: classification = value as! Int; break
+            default: break
+            }
+        }
+    }
+    
+    init(hand: Int, peakRate: Double, passedYawTreshold: Bool, passedNegativeYawTreshold: Bool, passedPeakRateThreshold: Bool, passedNegativePeakRateThreshold: Bool) {
+        self.hand = hand; self.peakRate = peakRate;  self.passedNegativeYawTreshold = passedNegativeYawTreshold; self.passedPeakRateThreshold = passedPeakRateThreshold; self.passedYawTreshold = passedYawTreshold; self.passedNegativePeakRateThreshold = passedNegativePeakRateThreshold
+        
+        if passedNegativeYawTreshold, passedNegativePeakRateThreshold {
+            // Counter clockwise swing.
+            switch hand {
+            case 0: classification = MotionType.backhand.rawValue; break
+            case 1: classification = MotionType.forhand.rawValue; break
+            default: classification = MotionType.none.rawValue; break
+            }
+        } else if passedYawTreshold, passedPeakRateThreshold {
+            switch hand {
+            case 0: classification = MotionType.forhand.rawValue; break
+            case 1: classification = MotionType.backhand.rawValue; break
+            default: classification = MotionType.none.rawValue; break
+            }
+        } else {
+            classification = MotionType.none.rawValue
+        }
+    }
+    
+    var asRawObject : [String : Any] {
+        return ["features" : features,
+                "values" : values]
+    }
+}
+
 class MotionSample : NSObject {
     
     enum SampleDataType : Int {

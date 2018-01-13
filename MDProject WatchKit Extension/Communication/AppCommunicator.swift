@@ -15,9 +15,9 @@ struct AppCommunicator {
     ///
     /// - Parameter data: stream to send to phone
     /// - Returns: did secceed sending data
-    static func sendNotification(with data : String?, errorHandler : @escaping ((Error) -> Void)) {
+    static func sendNotification(with data : AnyObject?, errorHandler : @escaping ((Error) -> Void)) {
         /// Checks if data and connection are valid
-        guard let message = data,
+        guard let data = data,
             WCSession.isSupported(),
             WCSession.default.isReachable else {
                 print ("data wasn't send due to lack of data of lack of connection...obviously")
@@ -25,7 +25,9 @@ struct AppCommunicator {
         }
         // sends messages with callbacks
         // replyHandler should not be implemented!!!
-        WCSession.default.sendMessage([NotificationMessage.message : message], replyHandler: nil, errorHandler: {
+        let message = [NSNotification.Name.message.rawValue : data,
+                       NSNotification.Name.isSampling.rawValue : data.self is [AnyObject]] as [String : Any]
+        WCSession.default.sendMessage(message, replyHandler: nil, errorHandler: {
         error in
             self.errorHandler(error: error as NSError, errorHandler)
         })

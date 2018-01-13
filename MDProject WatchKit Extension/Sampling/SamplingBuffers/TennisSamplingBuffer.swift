@@ -9,6 +9,7 @@
 import UIKit
 
 class TennisSamplingBuffer: PSamplingBuffer {
+    
     // FIX: - make the buffer as stack to be able to check last 50 sasmples
     var buffer: [Double] {
         return data.map {
@@ -34,7 +35,6 @@ class TennisSamplingBuffer: PSamplingBuffer {
     }
     
     // MARK: Running Buffer
-    
     func addSample(_ sample: MotionSample) {
         data.insert(sample, at:0)
         if data.count > size  {
@@ -44,11 +44,32 @@ class TennisSamplingBuffer: PSamplingBuffer {
     func removeLastSample() {
         data.removeLast()
     }
-    
-    
     func reset() {
         data.removeAll()
     }
+    // MARK: - Sampling Functions
+    func calculateMLSampleData(for hand : Int) -> TennisMLSample {
+        let accumulatedYawRotation = self.sum * sampleInterval
+        let peakRate = accumulatedYawRotation > 0 ? self.max : self.min
+        let passedYawThreshold = accumulatedYawRotation > yawThreshold
+        let passedNegativeYawThreshold = accumulatedYawRotation < -yawThreshold
+        let passedPeakRateThreshold = peakRate > rateThreshold
+        let passedNegativePeakRateThreshold = peakRate < -rateThreshold
+        
+        let sampleData = TennisMLSample(hand: hand,
+                                        peakRate: peakRate,
+                                        passedYawTreshold: passedYawThreshold,
+                                        passedNegativeYawTreshold: passedNegativeYawThreshold,
+                                        passedPeakRateThreshold: passedPeakRateThreshold,
+                                        passedNegativePeakRateThreshold: passedNegativePeakRateThreshold)
+        switch sampleData.classification {
+        case MotionType.backhand.rawValue: reset(); break
+        case MotionType.forhand.rawValue: reset(); break
+        default: break
+        }
+        return sampleData;
+    }
+    
     
     var isFull : Bool {
         return size == data.count

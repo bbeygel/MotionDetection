@@ -40,13 +40,13 @@ extension AppDelegate : WCSessionDelegate {
     }
     
     func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
-        guard let messageObject = message[NotificationMessage.message] as? String else {
+        guard let messageObject = message[NSNotification.Name.message.rawValue] else {
             print ("IPHONE - bad message received : \(message)")
             return
         }
         print (message)
         DispatchQueue.main.async {
-            self.testViewController.lblActionType.text = messageObject
+            NotificationCenter.default.post(name: NSNotification.Name.newDataArrived, object: messageObject)
         }
     }
 }
