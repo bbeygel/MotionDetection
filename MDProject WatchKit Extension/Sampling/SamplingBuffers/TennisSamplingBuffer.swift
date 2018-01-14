@@ -56,7 +56,8 @@ class TennisSamplingBuffer: PSamplingBuffer {
         let passedPeakRateThreshold = peakRate > rateThreshold
         let passedNegativePeakRateThreshold = peakRate < -rateThreshold
         
-        let sampleData = TennisMLSample(hand: hand,
+        let sampleData = TennisMLSample(timestamp: Int(Date().timeIntervalSince1970),
+                                        hand: hand,
                                         peakRate: peakRate,
                                         passedYawTreshold: passedYawThreshold,
                                         passedNegativeYawTreshold: passedNegativeYawThreshold,

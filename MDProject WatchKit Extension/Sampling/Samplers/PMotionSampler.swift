@@ -13,7 +13,6 @@ protocol PMotionSampler : class {
     var delegate: MotionSamplerDelegate? { set get }
     func startSampling()
     func stopSampling()
-    func reset()
     func handleMotionData(_ motionData : [Double])
     func handleFullBuffer()
 }

@@ -26,7 +26,8 @@ class SamplesTableViewController: UITableViewController, MFMailComposeViewContro
     @objc func newDataArrived(_ notification : NSNotification) {
         guard let newRawSamples = notification.object as? [[String : Any]] else { return }
         let newSamples = newRawSamples.map { TennisMLSample(features:$0["features"] as! [String],
-                                                            values:$0["values"] as! [Any]) }
+                                                            values:$0["values"] as! [Any],
+                                                            classification: $0["classification"] as! Int) }
         arrSamples.append(contentsOf: newSamples)
         tableView.reloadData()
     }
@@ -35,35 +36,51 @@ class SamplesTableViewController: UITableViewController, MFMailComposeViewContro
         self.createCSVMail()
     }
     
-    private func createCSVData() -> String {
+    private func createCSVData() -> (x_train : String, x_test : String, y_train : String, y_test : String)? {
         guard arrSamples.count > 0,
-            let features = arrSamples.first?.features else { return ""}
-        let data = arrSamples.map{ return $0.values }
-        
-        var csvText = features.joined(separator: ",")
-        csvText += " \n "
-        for m in data {
-            let newLine = m.map {
-                return "\($0)"
+            let features = arrSamples.first?.features else { return nil }
+        let t_data = arrSamples.map{ return ($0.values,$0.classification) }
+        let signalsData = t_data.map {
+            return $0.0.map{
+                    value in
+                    return "\(value)"
                 }.joined(separator: ",")
-            csvText.append(newLine)
-            csvText.append(" \n ")
         }
-        return csvText
+        let features_line = features.joined(separator: ",") + "\n"
+        let x_train = features_line + signalsData[0..<t_data.count*2/3].joined(separator: "\n")
+        let x_test = features_line + signalsData[t_data.count*2/3..<t_data.count].joined(separator: "\n")
+        let y_train = t_data[0..<t_data.count*2/3].map { return "\($0.1!) "}.joined(separator: "\n")
+        let y_test = t_data[t_data.count*2/3..<t_data.count].map { return "\($0.1!) "}.joined(separator: "\n")
+        return (x_train,x_test,y_train,y_test)
     }
+    
     private func createCSVMail() {
         let date = Date()
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd_MM_yyyy_HH-mm"
         let convertedDate = dateFormatter.string(from: date)
-        let fileName = convertedDate+"_Measurements.txt"
-        let fpath = NSURL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent(fileName)
         
-        let csvText = createCSVData()
+        let x_train_fpath = NSURL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent("x_train.csv")
+        let x_test_fpath = NSURL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent("x_test.csv")
+        let y_train_fpath = NSURL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent("y_train.csv")
+        let y_test_fpath = NSURL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent("y_test.csv")
         
+        guard let mlData = createCSVData() else {
+            let alert = UIAlertController(title: "Error", message: "error creating data set", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "cancel", style: .cancel, handler: nil))
+            present(alert, animated: true, completion: nil)
+            return
+        }
+        let dataToPath = [mlData.x_train : x_train_fpath,
+                          mlData.x_test : x_test_fpath,
+                          mlData.y_train : y_train_fpath,
+                          mlData.y_test : y_test_fpath]
         do {
             if MFMailComposeViewController.canSendMail() {
-                try csvText.write(to: fpath!, atomically: true, encoding: String.Encoding.utf8)
+                // writes csv to file
+                for dataPath in dataToPath {
+                    try dataPath.key.write(to: dataPath.value!, atomically: true, encoding: String.Encoding.utf8)
+                }
                 let emailController = MFMailComposeViewController()
                 emailController.mailComposeDelegate = self
                 emailController.setToRecipients(["anat.zaltz@gmail.com, hbeygel@gmail.com"])
@@ -71,7 +88,13 @@ class SamplesTableViewController: UITableViewController, MFMailComposeViewContro
                 let partA = "Hi,\n\nThe .csv measurements export is attached\n\n Participant Name:"
                 let partB = "Sent from the MD app"
                 emailController.setMessageBody( partA + partB, isHTML: false)
-                emailController.addAttachmentData(NSData(contentsOf: fpath!)! as Data, mimeType: "text/csv", fileName: fileName)
+                // adds csv file as attachment to file
+                for path in [x_train_fpath,x_test_fpath,y_train_fpath,y_test_fpath] {
+                    if let path = path,
+                        let data = NSData(contentsOf: path) as Data? {
+                    emailController.addAttachmentData(data, mimeType: "text/csv", fileName: path.lastPathComponent)
+                    }
+                }
                 present(emailController, animated: true, completion: nil)
             }
         }catch {

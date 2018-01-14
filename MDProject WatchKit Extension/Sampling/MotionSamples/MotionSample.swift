@@ -10,63 +10,71 @@ import Foundation
 protocol PMLMotion : class {
     var features : [String] { get }
     var values : [Any] { get }
-    init(features : [String], values: [Any])
+    var classification : Int! { set get }
+    init(features : [String], values: [Any], classification : Int)
 }
 
 class TennisMLSample : PMLMotion {
+    
     var features: [String] {
         get {
             return Feature.all
         }
     }
-    
     var values: [Any] {
         get {
-            return [hand,peakRate,passedYawTreshold,passedNegativeYawTreshold,passedPeakRateThreshold,passedNegativePeakRateThreshold,classification]
+            return [timestamp, hand,peakRate,passedYawTreshold,passedNegativeYawTreshold,passedPeakRateThreshold,passedNegativePeakRateThreshold]
         }
     }
+    var classification : Int!
     
     struct Feature {
+        static let TIMESTAMP = "timestamp"
         static let HAND = "hand"
         static let PEAK_RATE = "peakRate"
         static let YAW_THRESH = "passedYawTreshold"
         static let NEG_YAW_THRESH = "passedNegativeYawTreshold"
         static let PEAK_THRESH = "passedPeakRateThreshold"
         static let NEG_PEAK_THRESH = "passedNegativePeakRateThreshold"
-        static let CLASSIFICATION = "classification"
         static var all : [String] {
-            return [HAND,PEAK_RATE,YAW_THRESH,NEG_YAW_THRESH,PEAK_THRESH,NEG_PEAK_THRESH,CLASSIFICATION]
+            return [TIMESTAMP,HAND,PEAK_RATE,YAW_THRESH,NEG_YAW_THRESH,PEAK_THRESH,NEG_PEAK_THRESH]
         }
     }
     
+    var timestamp : Int!
     var hand : Int!
     var peakRate : Double!
-    var passedYawTreshold : Bool!
-    var passedNegativeYawTreshold : Bool!
-    var passedPeakRateThreshold : Bool!
-    var passedNegativePeakRateThreshold : Bool!
-    var classification : Int!
+    var passedYawTreshold : Int!
+    var passedNegativeYawTreshold : Int!
+    var passedPeakRateThreshold : Int!
+    var passedNegativePeakRateThreshold : Int!
     
     
-    required init(features: [String], values: [Any]) {
+    required init(features: [String], values: [Any], classification : Int) {
+        self.classification = classification
         for feature in features {
             let featureIndex = features.index(of: feature)!
             let value = values[featureIndex]
             switch feature {
+            case Feature.TIMESTAMP: timestamp = value as! Int
             case Feature.HAND: hand = value as! Int; break
             case Feature.PEAK_RATE: peakRate = value as! Double; break
-            case Feature.YAW_THRESH: passedYawTreshold = value as! Bool; break
-            case Feature.NEG_YAW_THRESH: passedNegativeYawTreshold = value as! Bool; break
-            case Feature.PEAK_THRESH: passedPeakRateThreshold = value as! Bool ; break
-            case Feature.NEG_PEAK_THRESH: passedNegativePeakRateThreshold = value as! Bool; break
-            case Feature.CLASSIFICATION: classification = value as! Int; break
+            case Feature.YAW_THRESH: passedYawTreshold = value as! Int; break
+            case Feature.NEG_YAW_THRESH: passedNegativeYawTreshold = value as! Int; break
+            case Feature.PEAK_THRESH: passedPeakRateThreshold = value as! Int ; break
+            case Feature.NEG_PEAK_THRESH: passedNegativePeakRateThreshold = value as! Int; break
             default: break
             }
         }
     }
     
-    init(hand: Int, peakRate: Double, passedYawTreshold: Bool, passedNegativeYawTreshold: Bool, passedPeakRateThreshold: Bool, passedNegativePeakRateThreshold: Bool) {
-        self.hand = hand; self.peakRate = peakRate;  self.passedNegativeYawTreshold = passedNegativeYawTreshold; self.passedPeakRateThreshold = passedPeakRateThreshold; self.passedYawTreshold = passedYawTreshold; self.passedNegativePeakRateThreshold = passedNegativePeakRateThreshold
+    init(timestamp : Int, hand: Int, peakRate: Double, passedYawTreshold: Bool, passedNegativeYawTreshold: Bool, passedPeakRateThreshold: Bool, passedNegativePeakRateThreshold: Bool) {
+        self.timestamp = timestamp
+        self.hand = hand; self.peakRate = peakRate;
+        self.passedNegativeYawTreshold = passedNegativeYawTreshold ? 1 : 0
+        self.passedPeakRateThreshold = passedPeakRateThreshold ? 1 : 0
+        self.passedYawTreshold = passedYawTreshold ? 1 : 0
+        self.passedNegativePeakRateThreshold = passedNegativePeakRateThreshold ? 1 : 0
         
         if passedNegativeYawTreshold, passedNegativePeakRateThreshold {
             // Counter clockwise swing.
@@ -88,7 +96,8 @@ class TennisMLSample : PMLMotion {
     
     var asRawObject : [String : Any] {
         return ["features" : features,
-                "values" : values]
+                "values" : values,
+                "classification": classification]
     }
 }
 

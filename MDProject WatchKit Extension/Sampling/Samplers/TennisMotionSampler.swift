@@ -21,7 +21,6 @@ class TennisMotionSampler: PMotionSampler {
         return tennisSamplesBuffer
     }
     var isSampling : Bool!
-    var latestSampleTime : Date = Date()
     
     var watchHandSide : WKInterfaceDeviceWristLocation {
         return WKInterfaceDevice.current().wristLocation
@@ -41,7 +40,6 @@ class TennisMotionSampler: PMotionSampler {
             print("Device Motion is not available.")
             return
         }
-        reset()
         motionManager.deviceMotionUpdateInterval = sampleInterval
         motionManager.startGyroUpdates()
         motionManager.startMagnetometerUpdates()
@@ -64,12 +62,7 @@ class TennisMotionSampler: PMotionSampler {
             motionQueue.cancelAllOperations()
             // stop motionUpdates
             motionManager.stopDeviceMotionUpdates()
-            reset()
         }
-    }
-    
-    func reset() {
-        latestSampleTime = Date()
     }
     
     /// PMotionSampler - handle sample data from watch
@@ -121,7 +114,6 @@ class TennisMotionSampler: PMotionSampler {
         
         if motionSamplesBuffer.isFull {
             handleFullBuffer()
-            latestSampleTime = Date()
             return
         }
     }
