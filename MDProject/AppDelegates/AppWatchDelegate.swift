@@ -39,7 +39,27 @@ extension AppDelegate : WCSessionDelegate {
         // handle disconnection
     }
     
+//    func session(_ session: WCSession, didReceiveUserInfo userInfo: [String : Any] = [:]) {
+//        guard let messageObject = userInfo[NSNotification.Name.message.rawValue] else {
+//            print ("IPHONE - bad message received : \(userInfo)")
+//            return
+//        }
+////        print (userInfo)
+//        DispatchQueue.main.async {
+//            NotificationCenter.default.post(name: NSNotification.Name.newDataArrived, object: messageObject)
+//        }
+//    }
     func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
+        guard let messageObject = message[NSNotification.Name.message.rawValue] else {
+            print ("IPHONE - bad message received : \(message)")
+            return
+        }
+        print (message)
+        DispatchQueue.main.async {
+            NotificationCenter.default.post(name: NSNotification.Name.newDataArrived, object: messageObject)
+        }
+    }
+    func session(_ session: WCSession, didReceiveMessage message: [String : Any], replyHandler: @escaping ([String : Any]) -> Void) {
         guard let messageObject = message[NSNotification.Name.message.rawValue] else {
             print ("IPHONE - bad message received : \(message)")
             return

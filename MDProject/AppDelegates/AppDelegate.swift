@@ -7,8 +7,6 @@
 //
 
 import UIKit
-import Crashlytics
-import Fabric
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,7 +14,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        Fabric.with([Crashlytics.self])
         setupWatchSession()
         application.isIdleTimerDisabled = true
         return true
@@ -45,13 +42,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
 
-}
-
-extension AppDelegate {
-    var mainTabController : MainTabBarController {
-        return window?.rootViewController as! MainTabBarController
-    }
-    var testViewController : TestingViewController {
-        return window?.rootViewController as! TestingViewController
-    }
 }

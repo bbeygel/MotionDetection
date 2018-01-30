@@ -19,4 +19,9 @@ protocol PSamplingBuffer: class {
     func addSample(_ sample: MotionSample)
     func reset()
     var isFull : Bool { get }
+    
+    var sum : Double { get }
+    var min : Double { get }
+    var max : Double { get }
+    var recentMean : Double { get }
 }

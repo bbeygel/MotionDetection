@@ -18,20 +18,30 @@ struct AppCommunicator {
     static func sendNotification(with data : AnyObject?, errorHandler : @escaping ((Error) -> Void)) {
         /// Checks if data and connection are valid
         guard let data = data,
-            WCSession.isSupported(),
-            WCSession.default.isReachable else {
-                print ("data wasn't send due to lack of data of lack of connection...obviously")
+            WCSession.isSupported() else {
                 return
         }
-        // sends messages with callbacks
-        // replyHandler should not be implemented!!!
+        
         let message = [NSNotification.Name.message.rawValue : data,
                        NSNotification.Name.isSampling.rawValue : data.self is [AnyObject]] as [String : Any]
-        WCSession.default.sendMessage(message, replyHandler: nil, errorHandler: {
-        error in
-            self.errorHandler(error: error as NSError, errorHandler)
-        })
+        
+        WCSession.default.activate()
+        DispatchQueue.main.async {
+            WCSession.default.sendMessage(message, replyHandler: nil, errorHandler: {
+                error in
+                self.errorHandler(error: error as NSError, errorHandler)
+            })
+            
+//            if WCSession.default.isReachable {
+//                // sends messages with callbacks
+//                // replyHandler should not be implemented!!!
+//
+//            } else {
+//                WCSession.default.transferUserInfo(message)
+//            }
+        }
     }
+    
     static func errorHandler(error: NSError, _ callback: ((Error)->Void)?) {
         print("Error Code: \(error.code)\n\(error.localizedDescription)")
     }

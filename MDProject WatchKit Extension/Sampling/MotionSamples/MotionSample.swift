@@ -23,7 +23,16 @@ class TennisMLSample : PMLMotion {
     }
     var values: [Any] {
         get {
-            return [timestamp, hand,peakRate,passedYawTreshold,passedNegativeYawTreshold,passedPeakRateThreshold,passedNegativePeakRateThreshold]
+            return [timestamp,
+                    hand,
+                    peakRate,
+                    accumulatedYawRotation,
+                    yawThreshold,
+                    rateThreshold,
+                    passedYawThreshold,
+                    passedNegativeYawThreshold,
+                    passedPeakRateThreshold,
+                    passedNegativePeakRateThreshold]
         }
     }
     var classification : Int!
@@ -32,20 +41,26 @@ class TennisMLSample : PMLMotion {
         static let TIMESTAMP = "timestamp"
         static let HAND = "hand"
         static let PEAK_RATE = "peakRate"
-        static let YAW_THRESH = "passedYawTreshold"
-        static let NEG_YAW_THRESH = "passedNegativeYawTreshold"
-        static let PEAK_THRESH = "passedPeakRateThreshold"
-        static let NEG_PEAK_THRESH = "passedNegativePeakRateThreshold"
+        static let ACCUM_YAW_ROT = "accumulatedYawRotation"
+        static let YAW_THRESH = "yawThreshold"
+        static let RATE_THRESH = "rateThreshold"
+        static let PASS_YAW_THRESH = "passedYawTreshold"
+        static let PASS_NEG_YAW_THRESH = "passedNegativeYawTreshold"
+        static let PASS_PEAK_THRESH = "passedPeakRateThreshold"
+        static let PASS_NEG_PEAK_THRESH = "passedNegativePeakRateThreshold"
         static var all : [String] {
-            return [TIMESTAMP,HAND,PEAK_RATE,YAW_THRESH,NEG_YAW_THRESH,PEAK_THRESH,NEG_PEAK_THRESH]
+            return [TIMESTAMP, HAND, PEAK_RATE, ACCUM_YAW_ROT, YAW_THRESH, RATE_THRESH, PASS_YAW_THRESH, PASS_NEG_YAW_THRESH, PASS_PEAK_THRESH, PASS_NEG_PEAK_THRESH]
         }
     }
     
     var timestamp : Int!
     var hand : Int!
     var peakRate : Double!
-    var passedYawTreshold : Int!
-    var passedNegativeYawTreshold : Int!
+    var accumulatedYawRotation : Double!
+    var yawThreshold : Double!
+    var rateThreshold : Double!
+    var passedYawThreshold : Int!
+    var passedNegativeYawThreshold : Int!
     var passedPeakRateThreshold : Int!
     var passedNegativePeakRateThreshold : Int!
     
@@ -59,38 +74,46 @@ class TennisMLSample : PMLMotion {
             case Feature.TIMESTAMP: timestamp = value as! Int
             case Feature.HAND: hand = value as! Int; break
             case Feature.PEAK_RATE: peakRate = value as! Double; break
-            case Feature.YAW_THRESH: passedYawTreshold = value as! Int; break
-            case Feature.NEG_YAW_THRESH: passedNegativeYawTreshold = value as! Int; break
-            case Feature.PEAK_THRESH: passedPeakRateThreshold = value as! Int ; break
-            case Feature.NEG_PEAK_THRESH: passedNegativePeakRateThreshold = value as! Int; break
+            case Feature.ACCUM_YAW_ROT: accumulatedYawRotation = value as! Double; break
+            case Feature.YAW_THRESH: yawThreshold = value as! Double; break
+            case Feature.RATE_THRESH: rateThreshold = value as! Double; break
+            case Feature.PASS_YAW_THRESH: passedYawThreshold = value as! Int; break
+            case Feature.PASS_NEG_YAW_THRESH: passedNegativeYawThreshold = value as! Int; break
+            case Feature.PASS_PEAK_THRESH: passedPeakRateThreshold = value as! Int ; break
+            case Feature.PASS_NEG_PEAK_THRESH: passedNegativePeakRateThreshold = value as! Int; break
             default: break
             }
         }
     }
     
-    init(timestamp : Int, hand: Int, peakRate: Double, passedYawTreshold: Bool, passedNegativeYawTreshold: Bool, passedPeakRateThreshold: Bool, passedNegativePeakRateThreshold: Bool) {
+    init(timestamp : Int, hand: Int, peakRate: Double, accumulatedYawRotation : Double, yawThreshold : Double, rateThreshold : Double, accelSum : Double = 0.0) {
         self.timestamp = timestamp
         self.hand = hand; self.peakRate = peakRate;
-        self.passedNegativeYawTreshold = passedNegativeYawTreshold ? 1 : 0
-        self.passedPeakRateThreshold = passedPeakRateThreshold ? 1 : 0
-        self.passedYawTreshold = passedYawTreshold ? 1 : 0
-        self.passedNegativePeakRateThreshold = passedNegativePeakRateThreshold ? 1 : 0
+        self.peakRate = peakRate
+        self.accumulatedYawRotation = accumulatedYawRotation
+        self.yawThreshold = yawThreshold
+        self.rateThreshold = rateThreshold
+        self.passedYawThreshold = accumulatedYawRotation > yawThreshold ? 1 : 0
+        self.passedNegativeYawThreshold = accumulatedYawRotation < -yawThreshold ? 1 : 0
+        self.passedPeakRateThreshold = peakRate > rateThreshold ? 1 : 0
+        self.passedNegativePeakRateThreshold = peakRate < -rateThreshold ? 1 : 0
         
-        if passedNegativeYawTreshold, passedNegativePeakRateThreshold {
-            // Counter clockwise swing.
-            switch hand {
-            case 0: classification = MotionType.backhand.rawValue; break
-            case 1: classification = MotionType.forhand.rawValue; break
-            default: classification = MotionType.none.rawValue; break
+        classification = MotionType.none.rawValue
+        if accelSum > 100 {
+            if passedNegativeYawThreshold == 1, passedNegativePeakRateThreshold == 1 {
+                // Counter clockwise swing.
+                switch hand {
+                case 0: classification = MotionType.backhand.rawValue; break
+                case 1: classification = MotionType.forhand.rawValue; break
+                default: classification = MotionType.none.rawValue; break
+                }
+            } else if passedYawThreshold == 1, passedPeakRateThreshold == 1 {
+                switch hand {
+                case 0: classification = MotionType.forhand.rawValue; break
+                case 1: classification = MotionType.backhand.rawValue; break
+                default: classification = MotionType.none.rawValue; break
+                }
             }
-        } else if passedYawTreshold, passedPeakRateThreshold {
-            switch hand {
-            case 0: classification = MotionType.forhand.rawValue; break
-            case 1: classification = MotionType.backhand.rawValue; break
-            default: classification = MotionType.none.rawValue; break
-            }
-        } else {
-            classification = MotionType.none.rawValue
         }
     }
     

@@ -58,11 +58,21 @@ class TennisMotionWorkoutManager : PMotionWorkoutManager {
 // MARK: - MotionSampler delegate functions
 extension TennisMotionWorkoutManager {
     func motionSampler(_ sampler: PMotionSampler, didSampleMotion motion: PMLMotion) {
-        guard let lastTennisMotion = motion as? TennisMLSample else { return }
-        sampledMotions.append(lastTennisMotion)
-        self.delegate?.didPerformMotion(MotionType(rawValue:lastTennisMotion.classification)!)
-        if !isSampling {
-            AppCommunicator.sendNotification(with: lastTennisMotion.asRawObject as AnyObject) {
+        guard let currTennisMotion = motion as? TennisMLSample else { return }
+        
+        if let lastTennisMotion = sampledMotions.last,
+            lastTennisMotion.classification != MotionType.none.rawValue,
+            currTennisMotion.classification != MotionType.none.rawValue,
+            lastTennisMotion.classification != currTennisMotion.classification,
+            currTennisMotion.timestamp == lastTennisMotion.timestamp {
+            currTennisMotion.classification = MotionType.none.rawValue
+        }
+        
+        sampledMotions.append(currTennisMotion)
+        self.delegate?.didPerformMotion(MotionType(rawValue:currTennisMotion.classification)!)
+        if !isSampling,
+            currTennisMotion.classification != MotionType.none.rawValue {
+            AppCommunicator.sendNotification(with: currTennisMotion.asRawObject as AnyObject) {
                 error in
                 print(error.localizedDescription)
             }

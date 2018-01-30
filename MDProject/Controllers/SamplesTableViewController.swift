@@ -124,7 +124,18 @@ class SamplesTableViewController: UITableViewController, MFMailComposeViewContro
         return cell
     }
     
-    
+    @IBAction func btnClosePressed() {
+        guard arrSamples.isEmpty else {
+            let alert = UIAlertController(title: "Warning", message: "controller isn't empty. if you leave all sampled data would be deleted, are you sure you want to exit?", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Close", style: .destructive, handler: { (action) in
+                self.dismiss(animated: true, completion: nil)
+            }))
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+            self.present(alert, animated: true, completion: nil);
+            return
+        }
+        self.dismiss(animated: true, completion: nil)
+    }
     /*
      // Override to support conditional editing of the table view.
      override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
