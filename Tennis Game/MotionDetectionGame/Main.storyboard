@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="14109" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="L2Q-IM-O1U">
+    <device id="appleTV" orientation="landscape">
+        <adaptation id="light"/>
+    </device>
+    <dependencies>
+        <deployment identifier="tvOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Main Screen View Controller-->
+        <scene sceneID="Mdi-tG-iH2">
+            <objects>
+                <viewController id="L2Q-IM-O1U" customClass="MainScreenViewController" customModule="MotionDetectionGame" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="hMk-TU-Fuz"/>
+                        <viewControllerLayoutGuide type="bottom" id="Xkc-49-up7"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="5yj-8h-fhN">
+                        <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="ijT-Xa-pA0">
+                                <rect key="frame" x="457" y="463" width="1007" height="155"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome To Motion Detection MiniGame" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R6o-Lp-LIp">
+                                        <rect key="frame" x="0.0" y="0.0" width="1007" height="69"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Message Received: &quot;none yet&quot;" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ySC-A5-Alp">
+                                        <rect key="frame" x="244" y="109" width="520" height="46"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="ijT-Xa-pA0" firstAttribute="centerX" secondItem="5yj-8h-fhN" secondAttribute="centerX" id="a5k-6H-Uzy"/>
+                            <constraint firstItem="ijT-Xa-pA0" firstAttribute="centerY" secondItem="5yj-8h-fhN" secondAttribute="centerY" id="mca-jm-XWZ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="mCf-sG-yy9"/>
+                    </view>
+                    <connections>
+                        <outlet property="lblMessage" destination="ySC-A5-Alp" id="Anj-bO-Kmh"/>
+                        <outlet property="lblTitle" destination="R6o-Lp-LIp" id="Tfy-J6-hBq"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jk3-1q-OqZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="123" y="135"/>
+        </scene>
+    </scenes>
+</document>
