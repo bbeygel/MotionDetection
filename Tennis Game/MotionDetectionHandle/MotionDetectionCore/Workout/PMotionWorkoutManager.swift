@@ -10,7 +10,12 @@ import UIKit
 import Common
 
 protocol WorkoutManagerDelegate : class {
-    func didPerformMotion(_ motionType : MotionType)
+    func didPerformMotion(_ motion : PMLMotion)
+    func didFinishSamplingMotions(_ motions: [PMLMotion])
+}
+
+extension WorkoutManagerDelegate {
+    func didFinishSamplingMotions(_ motions: [PMLMotion]){}
 }
 
 protocol PMotionWorkoutManager : MotionSamplerDelegate {

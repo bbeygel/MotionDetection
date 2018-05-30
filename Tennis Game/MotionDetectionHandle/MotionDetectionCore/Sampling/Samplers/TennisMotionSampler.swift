@@ -15,11 +15,13 @@ class TennisMotionSampler: PMotionSampler {
     var motionManager: CMMotionManager = CMMotionManager()
     var motionQueue: OperationQueue = OperationQueue()
     weak var delegate: MotionSamplerDelegate?
+
+    var motionSamplesBuffer: PSamplingBuffer  = TennisSamplingBuffer(size: 50)
     
-    var tennisSamplesBuffer: TennisSamplingBuffer = TennisSamplingBuffer(size: 50)
-    var motionSamplesBuffer: PSamplingBuffer {
-        return tennisSamplesBuffer
+    var tennisSamplesBuffer: TennisSamplingBuffer {
+        return motionSamplesBuffer as! TennisSamplingBuffer
     }
+    
     var isSampling : Bool!
     
     // if crown is in the right side meaning the watch is in "normal" position
@@ -75,18 +77,14 @@ class TennisMotionSampler: PMotionSampler {
     }
     
     func handleFullBuffer() {
-        let tennisMLSample = tennisSamplesBuffer.calculateMLSampleData(for: watchHandSide.rawValue)
-        var recentDetection = true
-        
-        if tennisMLSample.classification == .none, !isSampling {
-            recentDetection = false
-        } else {
-            delegate?.motionSampler(self, didSampleMotion: tennisMLSample)
+        guard isSampling,
+            let tennisMLSample = tennisSamplesBuffer.calculateMLSampleData(for: watchHandSide.rawValue) else {
+                return
         }
         
-        if recentDetection,
-            abs(tennisSamplesBuffer.recentMean) < resetThreshold {
-            recentDetection = false
+        delegate?.motionSampler(self, didSampleMotion: tennisMLSample)
+        
+        if abs(tennisSamplesBuffer.recentMean) < resetThreshold {
             tennisSamplesBuffer.reset()
         }
     }
@@ -107,11 +105,7 @@ class TennisMotionSampler: PMotionSampler {
             motion.attitude.yaw,
             motion.userAcceleration.x,
             motion.userAcceleration.y,
-            motion.userAcceleration.z,
-            motion.magneticField.field.x,
-            motion.magneticField.field.x,
-            motion.magneticField.field.x,
-            Double(motion.magneticField.accuracy.rawValue)])
+            motion.userAcceleration.z])
         
         if motionSamplesBuffer.isFull {
             handleFullBuffer()

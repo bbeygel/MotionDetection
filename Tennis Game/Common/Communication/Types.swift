@@ -9,9 +9,8 @@
 import Foundation
 
 public enum MotionType: Int {
-    case none = -1
     case backhand = 0
-    case forhand = 1
+    case forhand
 }
 
 public enum HandSide: Int {

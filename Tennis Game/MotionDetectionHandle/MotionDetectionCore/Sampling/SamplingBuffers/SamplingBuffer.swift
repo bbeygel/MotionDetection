@@ -24,7 +24,6 @@ class SamplingBuffer: PSamplingBuffer {
     
     // MARK: Initialization
     required init(size: Int) {
-        
         self.size = size
     }
     

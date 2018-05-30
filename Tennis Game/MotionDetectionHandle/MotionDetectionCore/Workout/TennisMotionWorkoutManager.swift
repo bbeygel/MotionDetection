@@ -12,7 +12,7 @@ import Common
 class TennisMotionWorkoutManager : PMotionWorkoutManager {
     
     var delegate: WorkoutManagerDelegate?
-    var sampler: PMotionSampler = TennisMotionSampler()
+    let sampler: PMotionSampler = TennisMotionSampler()
     var isSampling : Bool {
         return (sampler as? TennisMotionSampler)?.isSampling == true
     }
@@ -41,6 +41,7 @@ class TennisMotionWorkoutManager : PMotionWorkoutManager {
     
     func stopWorkout() {
         sampler.stopSampling()
+        delegate?.didFinishSamplingMotions(sampledMotions)
     }
 }
 
@@ -51,21 +52,14 @@ extension TennisMotionWorkoutManager {
         guard let currTennisMotion = motion as? TennisMLSample else { return }
         
         if let lastTennisMotion = sampledMotions.last,
-            lastTennisMotion.classification != MotionType.none.rawValue,
-            currTennisMotion.classification != MotionType.none.rawValue,
             lastTennisMotion.classification != currTennisMotion.classification,
             currTennisMotion.timestamp == lastTennisMotion.timestamp {
-            currTennisMotion.classification = MotionType.none.rawValue
+            return
         }
         
         sampledMotions.append(currTennisMotion)
-        if !isSampling,
-            currTennisMotion.classification != MotionType.none.rawValue {
-            delegate?.didPerformMotion(MotionType(rawValue: currTennisMotion.classification)!)
-//            AppCommunicator.sendNotification(with: currTennisMotion.asRawObject as AnyObject) {
-//                error in
-//                print(error.localizedDescription)
-//            }
+        if !isSampling {
+            delegate?.didPerformMotion(currTennisMotion)
         }
     }
 }

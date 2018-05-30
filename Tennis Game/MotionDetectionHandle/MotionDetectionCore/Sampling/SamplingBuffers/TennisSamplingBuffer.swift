@@ -20,26 +20,29 @@ class TennisSamplingBuffer: SamplingBuffer {
     }
     
     // MARK: - Sampling Functions
-    func calculateMLSampleData(for hand : Int) -> TennisMLSample {
+    func calculateMLSampleData(for hand : Int) -> TennisMLSample? {
         let accumulatedYawRotation = self.sum * sampleInterval
         let peakRate = accumulatedYawRotation > 0 ? self.max : self.min
         let accelSum = data.map { return $0.accelerationZ + $0.accelerationY + $0.accelerationX }.reduce(0.0, +)
         
-        let sampleData = TennisMLSample(timestamp: Int(Date().timeIntervalSince1970),
+        // Trying To Create Tennis ML Sample
+        // If Isnt able to create then classification wasnt made
+        // If classification wasnt made then sample is worthless
+        guard let sampleData = TennisMLSample(timestamp: Int(Date().timeIntervalSince1970),
                                         hand: hand,
                                         peakRate: peakRate,
                                         accumulatedYawRotation: accumulatedYawRotation,
                                         yawThreshold: yawThreshold,
                                         rateThreshold: rateThreshold,
-                                        accelSum:accelSum)
-        switch sampleData.classification {
-        case MotionType.backhand.rawValue: reset(); break
-        case MotionType.forhand.rawValue: reset(); break
-        default: break
+                                        accelSum:accelSum,
+                                        rawData: data) else {
+                                            return nil
         }
-        if sampleData.classification != MotionType.none.rawValue {
-            print("classification: \(sampleData.classification)\ntimestamp: \(sampleData.timestamp)\n AccelSum: \(accelSum)--------------\n")
-        }
+        // If Could Classify data then the buffer is usless (because it was used)
+        // Reset the buffer
+        // Send back classification
+        reset()
+        print("classification: \(sampleData.classification)\ntimestamp: \(sampleData.timestamp)\n AccelSum: \(accelSum)--------------\n")
         return sampleData;
     }
 }
