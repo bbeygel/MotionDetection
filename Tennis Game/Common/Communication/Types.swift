@@ -8,9 +8,7 @@
 
 import Foundation
 
-public enum MotionType: Int {
-    case backhand = 0
-    case forhand
+public protocol MotionType {
 }
 
 public enum HandSide: Int {
@@ -25,4 +23,10 @@ public enum HandSide: Int {
             return .left
         }
     }
+}
+
+public enum TennisMotionType: Int, MotionType {
+    case none = -1
+    case backhand = 0
+    case forhand = 1
 }

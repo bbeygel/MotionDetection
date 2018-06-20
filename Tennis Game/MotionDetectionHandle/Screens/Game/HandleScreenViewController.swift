@@ -75,22 +75,24 @@ extension HandleScreenViewController: MCBrowserViewControllerDelegate {
 
 extension HandleScreenViewController: WorkoutManagerDelegate {
     
-    func didPerformMotion(_ motion: PMLMotion) {
+    func didPerformMotion(_ motion: PMLMotion, with classification: MotionType) {
+        guard let tennisMotion = motion as? TennisMLSample else {
+            print("Invalid Motion Tried To Be Handled By Tennis Handle")
+            return
+        }
         DispatchQueue.main.async {
-            guard let motionType = MotionType(rawValue: motion.classification) else {
-                print("Invalid Motion Tried To Be Handled By Tennis Handle")
-                return
-            }
+            let motionType = tennisMotion.classification
             switch motionType {
-            case .forhand:
+            case .forhand?:
                 self.imageView.image = #imageLiteral(resourceName: "ic_racket_green")
                 break
-            case .backhand:
+            case .backhand?:
                 self.imageView.image = #imageLiteral(resourceName: "ic_racket_red")
                 break
+            default: break
             }
             
-            let message = "Performed Motion Type - \(motionType)"
+            let message = "Performed Motion Type - \(motionType?.rawValue ?? -1)"
             let messageData = message.data(using: .utf8)
             
             self.communications.sendMessage(data: messageData) {

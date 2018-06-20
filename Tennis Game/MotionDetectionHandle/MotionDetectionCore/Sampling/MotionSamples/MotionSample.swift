@@ -14,11 +14,11 @@ protocol PMLMotion {
     var rawData : [MotionSample] { get set }
     var features : [String] { get }
     var values : [Any] { get }
-    var classification : Int! { set get }
-    init(features : [String], values: [Any], classification : Int, rawData: [MotionSample])
+    init(features : [String], values: [Any], rawData: [MotionSample])
 }
 
-class TennisMLSample : PMLMotion, MLFeatureProvider {
+class TennisMLSample : PMLMotion, MLFeatureProvider
+{
     var featureNames: Set<String> {
         return Set(Feature.all)
     }
@@ -52,7 +52,7 @@ class TennisMLSample : PMLMotion, MLFeatureProvider {
                     passedNegativePeakRateThreshold]
         }
     }
-    var classification : Int!
+    var classification : TennisMotionType!
     
     enum Feature: String
     {
@@ -92,9 +92,12 @@ class TennisMLSample : PMLMotion, MLFeatureProvider {
     var passedPeakRateThreshold : Int!
     var passedNegativePeakRateThreshold : Int!
     
-    
-    required init(features: [String], values: [Any], classification : Int, rawData: [MotionSample] = [MotionSample]()) {
+    convenience init(features: [String], values: [Any], classification: TennisMotionType, rawData: [MotionSample] = [MotionSample]()) {
+        self.init(features: features, values: values, rawData: rawData)
         self.classification = classification
+    }
+    
+    required init(features: [String], values: [Any], rawData: [MotionSample] = [MotionSample]()) {
         self.rawData = rawData
         for feature in features {
             let featureIndex = features.index(of: feature)!
@@ -131,14 +134,14 @@ class TennisMLSample : PMLMotion, MLFeatureProvider {
             if passedNegativeYawThreshold == 1, passedNegativePeakRateThreshold == 1 {
                 // Counter clockwise swing.
                 switch hand {
-                case 0: classification = MotionType.backhand.rawValue; break
-                case 1: classification = MotionType.forhand.rawValue; break
+                case 0: classification = TennisMotionType.backhand; break
+                case 1: classification = TennisMotionType.forhand; break
                 default: return nil
                 }
             } else if passedYawThreshold == 1, passedPeakRateThreshold == 1 {
                 switch hand {
-                case 0: classification = MotionType.forhand.rawValue; break
-                case 1: classification = MotionType.backhand.rawValue; break
+                case 0: classification = TennisMotionType.forhand; break
+                case 1: classification = TennisMotionType.backhand; break
                 default: return nil
                 }
             } else {

@@ -13,27 +13,27 @@ final class TennisMotionClassifier
 {
     static let shared = TennisMotionClassifier()
     
-    let model : rf_tennis
+    private let rfModel = MLRandomForest()
+    private let rnnModel = keras_lstm_tennis()
     
-    private init() {
-        model = rf_tennis.init()
-    }
+    private init() {}
     
-    func classifyMotion(_ motion: TennisMLSample) {
+    func classify(_ motion: TennisMLSample) -> Int {
         do {
-            let data = try MLMultiArray(shape: [10], dataType: .double)
-            // FIX: need to implement passing real data
-            let pred = try model
-                .prediction(Signals: data)
-                .classProbability.reduce(into: (key: Int64(0), value: Double(0)), { (res, prob) in
-                    if prob.value > res.value {
-                        res.key = prob.key
-                        res.value = prob.value
-                    }
-                })
-            print("Prediction Is = \(pred)")
+            let input = MLRandomForestInput(
+                accumulatedYawRotation: "\(motion.accumulatedYawRotation)",
+                hand: "\(motion.hand)",
+                timestamp: "\(motion.timestamp)",
+                peakRate: "\(motion.peakRate)"
+            )
+            
+            let pred = try rfModel
+                .prediction(input: input)
+                .MotionType
+            return Int(pred)
         } catch {
             print("Error While Classifying - \(error)")
         }
+        return -1
     }
 }

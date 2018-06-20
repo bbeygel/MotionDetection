@@ -17,7 +17,7 @@ protocol PMotionWorkoutManager : MotionSamplerDelegate {
     var healthStore : HKHealthStore { get }
     var session : HKWorkoutSession? { get }
     var sampler : PMotionSampler { get }
-    weak var delegate: WorkoutManagerDelegate? { get set }
+    var delegate: WorkoutManagerDelegate? { get set }
     
     func startWorkout();
     func stopWorkout();

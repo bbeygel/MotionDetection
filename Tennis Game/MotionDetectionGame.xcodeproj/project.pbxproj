@@ -7,9 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		363B65CE20BEF46C00CA0894 /* keras_lstm_tennis.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 363B65CD20BEF46C00CA0894 /* keras_lstm_tennis.mlmodel */; };
 		363B65D320BEFDE600CA0894 /* TennisMotionClassifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 363B65D220BEFDE600CA0894 /* TennisMotionClassifier.swift */; };
-		363B65D520BF073F00CA0894 /* rf_tennis.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 363B65D420BF073E00CA0894 /* rf_tennis.mlmodel */; };
 		36CAFC9920B018EB00E5F359 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CAFC9820B018EB00E5F359 /* AppDelegate.swift */; };
 		36CAFC9B20B018EB00E5F359 /* MainScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CAFC9A20B018EB00E5F359 /* MainScreenViewController.swift */; };
 		36CAFCA020B018ED00E5F359 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 36CAFC9F20B018ED00E5F359 /* Assets.xcassets */; };
@@ -39,6 +37,8 @@
 		36CAFD2A20B06AE200E5F359 /* TennisSamplingBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CAFD2020B06AE200E5F359 /* TennisSamplingBuffer.swift */; };
 		36CAFD3120B06BBD00E5F359 /* AppCommunicationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CAFD2E20B06B6000E5F359 /* AppCommunicationManager.swift */; };
 		36CAFD3620B06F3500E5F359 /* Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CAFD3320B06F1F00E5F359 /* Types.swift */; };
+		60831D4220DA740900A96003 /* MLRandomForest.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 60831D4020DA740900A96003 /* MLRandomForest.mlmodel */; };
+		60831D4320DA740900A96003 /* keras_lstm_tennis.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 60831D4120DA740900A96003 /* keras_lstm_tennis.mlmodel */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,9 +94,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		363B65CD20BEF46C00CA0894 /* keras_lstm_tennis.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = keras_lstm_tennis.mlmodel; sourceTree = "<group>"; };
 		363B65D220BEFDE600CA0894 /* TennisMotionClassifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TennisMotionClassifier.swift; sourceTree = "<group>"; };
-		363B65D420BF073E00CA0894 /* rf_tennis.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = rf_tennis.mlmodel; sourceTree = "<group>"; };
 		36CAFC9520B018EB00E5F359 /* MotionDetectionGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MotionDetectionGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		36CAFC9820B018EB00E5F359 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		36CAFC9A20B018EB00E5F359 /* MainScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenViewController.swift; sourceTree = "<group>"; };
@@ -135,6 +133,8 @@
 		36CAFD2020B06AE200E5F359 /* TennisSamplingBuffer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TennisSamplingBuffer.swift; sourceTree = "<group>"; };
 		36CAFD2E20B06B6000E5F359 /* AppCommunicationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCommunicationManager.swift; sourceTree = "<group>"; };
 		36CAFD3320B06F1F00E5F359 /* Types.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Types.swift; sourceTree = "<group>"; };
+		60831D4020DA740900A96003 /* MLRandomForest.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = MLRandomForest.mlmodel; sourceTree = "<group>"; };
+		60831D4120DA740900A96003 /* keras_lstm_tennis.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = keras_lstm_tennis.mlmodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -204,6 +204,7 @@
 		363B65D120BEFDD800CA0894 /* Classifier */ = {
 			isa = PBXGroup;
 			children = (
+				60831D3F20DA73F100A96003 /* Trained Models */,
 				363B65D220BEFDE600CA0894 /* TennisMotionClassifier.swift */,
 			);
 			path = Classifier;
@@ -264,8 +265,6 @@
 				36CAFCE220B0369A00E5F359 /* Application */,
 				36CAFCE120B0369700E5F359 /* Screens */,
 				36CAFCC220B01A5700E5F359 /* Assets.xcassets */,
-				363B65CD20BEF46C00CA0894 /* keras_lstm_tennis.mlmodel */,
-				363B65D420BF073E00CA0894 /* rf_tennis.mlmodel */,
 				36CAFCC420B01A5700E5F359 /* LaunchScreen.storyboard */,
 				36CAFCC720B01A5700E5F359 /* Info.plist */,
 			);
@@ -414,6 +413,15 @@
 				36CAFD2E20B06B6000E5F359 /* AppCommunicationManager.swift */,
 			);
 			path = Communication;
+			sourceTree = "<group>";
+		};
+		60831D3F20DA73F100A96003 /* Trained Models */ = {
+			isa = PBXGroup;
+			children = (
+				60831D4120DA740900A96003 /* keras_lstm_tennis.mlmodel */,
+				60831D4020DA740900A96003 /* MLRandomForest.mlmodel */,
+			);
+			path = "Trained Models";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -669,17 +677,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				36CAFD2720B06AE200E5F359 /* TennisMotionSample.swift in Sources */,
+				60831D4220DA740900A96003 /* MLRandomForest.mlmodel in Sources */,
 				363B65D320BEFDE600CA0894 /* TennisMotionClassifier.swift in Sources */,
 				36CAFD2A20B06AE200E5F359 /* TennisSamplingBuffer.swift in Sources */,
 				36CAFCE420B036A700E5F359 /* Application.swift in Sources */,
 				36CAFCBE20B01A5700E5F359 /* HandleScreenViewController.swift in Sources */,
-				363B65D520BF073F00CA0894 /* rf_tennis.mlmodel in Sources */,
 				36CAFD2420B06AE200E5F359 /* PMotionSampler.swift in Sources */,
 				36CAFD2120B06AE200E5F359 /* PMotionWorkoutManager.swift in Sources */,
 				36CAFD2220B06AE200E5F359 /* TennisMotionWorkoutManager.swift in Sources */,
+				60831D4320DA740900A96003 /* keras_lstm_tennis.mlmodel in Sources */,
 				36CAFD2820B06AE200E5F359 /* PSamplingBuffer.swift in Sources */,
 				36CAFD2920B06AE200E5F359 /* SamplingBuffer.swift in Sources */,
-				363B65CE20BEF46C00CA0894 /* keras_lstm_tennis.mlmodel in Sources */,
 				36CAFD2620B06AE200E5F359 /* MotionSample.swift in Sources */,
 				36CAFCBC20B01A5700E5F359 /* AppDelegate.swift in Sources */,
 				36CAFD2520B06AE200E5F359 /* TennisMotionSampler.swift in Sources */,

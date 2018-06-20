@@ -22,13 +22,13 @@ class TennisMotionWorkoutManager : PMotionWorkoutManager {
     var forhandCount : Int {
         return sampledMotions.filter{
             (sample: TennisMLSample) -> Bool in
-            return sample.classification == MotionType.forhand.rawValue
+            return sample.classification == TennisMotionType.forhand
             }.count
     }
     var backhandCount : Int {
         return sampledMotions.filter{
             (sample: TennisMLSample) -> Bool in
-            return sample.classification == MotionType.backhand.rawValue
+            return sample.classification == TennisMotionType.backhand
             }.count
     }
     init() {
@@ -59,7 +59,9 @@ extension TennisMotionWorkoutManager {
         
         sampledMotions.append(currTennisMotion)
         if !isSampling {
-            delegate?.didPerformMotion(currTennisMotion)
+            let classification = TennisMotionClassifier.shared.classify(currTennisMotion)
+            let tennisMotionClassification = TennisMotionType(rawValue: classification) ?? .none
+            delegate?.didPerformMotion(currTennisMotion, with: tennisMotionClassification)
         }
     }
 }
