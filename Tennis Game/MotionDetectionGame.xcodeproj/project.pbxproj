@@ -39,6 +39,7 @@
 		36CAFD3620B06F3500E5F359 /* Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CAFD3320B06F1F00E5F359 /* Types.swift */; };
 		60831D4220DA740900A96003 /* MLRandomForest.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 60831D4020DA740900A96003 /* MLRandomForest.mlmodel */; };
 		60831D4320DA740900A96003 /* keras_lstm_tennis.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 60831D4120DA740900A96003 /* keras_lstm_tennis.mlmodel */; };
+		60D6D73D20DA98B800C4002D /* HandleScreenViewController+Mail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60D6D73C20DA98B800C4002D /* HandleScreenViewController+Mail.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -135,6 +136,7 @@
 		36CAFD3320B06F1F00E5F359 /* Types.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Types.swift; sourceTree = "<group>"; };
 		60831D4020DA740900A96003 /* MLRandomForest.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = MLRandomForest.mlmodel; sourceTree = "<group>"; };
 		60831D4120DA740900A96003 /* keras_lstm_tennis.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = keras_lstm_tennis.mlmodel; sourceTree = "<group>"; };
+		60D6D73C20DA98B800C4002D /* HandleScreenViewController+Mail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HandleScreenViewController+Mail.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,6 +191,7 @@
 			isa = PBXGroup;
 			children = (
 				36CAFCBD20B01A5700E5F359 /* HandleScreenViewController.swift */,
+				60D6D73C20DA98B800C4002D /* HandleScreenViewController+Mail.swift */,
 				36CAFCDA20B0346100E5F359 /* HandleScreen.xib */,
 			);
 			path = Game;
@@ -685,6 +688,7 @@
 				36CAFD2420B06AE200E5F359 /* PMotionSampler.swift in Sources */,
 				36CAFD2120B06AE200E5F359 /* PMotionWorkoutManager.swift in Sources */,
 				36CAFD2220B06AE200E5F359 /* TennisMotionWorkoutManager.swift in Sources */,
+				60D6D73D20DA98B800C4002D /* HandleScreenViewController+Mail.swift in Sources */,
 				60831D4320DA740900A96003 /* keras_lstm_tennis.mlmodel in Sources */,
 				36CAFD2820B06AE200E5F359 /* PSamplingBuffer.swift in Sources */,
 				36CAFD2920B06AE200E5F359 /* SamplingBuffer.swift in Sources */,
