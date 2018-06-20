@@ -22,12 +22,12 @@ class TennisMotionSampler: PMotionSampler {
         return motionSamplesBuffer as! TennisSamplingBuffer
     }
     
-    var isSampling : Bool!
+    var isSampling : Bool = false
     
     // if crown is in the right side meaning the watch is in "normal" position
     // else the watch is upside down
     var watchHandSide : HandSide {
-        return HandSide.left
+        return HandSide.right
     }
     
     init() {
@@ -77,14 +77,21 @@ class TennisMotionSampler: PMotionSampler {
     }
     
     func handleFullBuffer() {
-        guard isSampling,
-            let tennisMLSample = tennisSamplesBuffer.calculateMLSampleData(for: watchHandSide.rawValue) else {
-                return
+        guard let tennisMLSample = tennisSamplesBuffer.calculateMLSampleData(for: watchHandSide.rawValue) else {
+            return
         }
         
-        delegate?.motionSampler(self, didSampleMotion: tennisMLSample)
+        var recentDetection = true
         
-        if abs(tennisSamplesBuffer.recentMean) < resetThreshold {
+        if tennisMLSample.classification == .none, !isSampling {
+            recentDetection = false
+        } else {
+            delegate?.motionSampler(self, didSampleMotion: tennisMLSample)
+        }
+        
+        if recentDetection,
+            abs(tennisSamplesBuffer.recentMean) < resetThreshold {
+            recentDetection = false
             tennisSamplesBuffer.reset()
         }
     }

@@ -9,7 +9,6 @@
 import UIKit
 import MultipeerConnectivity
 
-
 class MainScreenViewController: UIViewController
 {
     var peerID: MCPeerID!
@@ -18,7 +17,7 @@ class MainScreenViewController: UIViewController
     
     @IBOutlet weak var lblTitle : UILabel!
     @IBOutlet weak var lblMessage : UILabel!
-
+    @IBOutlet weak var imgRacket: UIImageView!
     
     init() {
         super.init(nibName: "MainScreen", bundle: Bundle.main)
@@ -62,7 +61,24 @@ extension MainScreenViewController: MCSessionDelegate {
             return
         }
         DispatchQueue.main.async { [unowned self] in
-            self.lblMessage.text = message
+            var motionTypeString = "none"
+            guard
+                let motionTypeInt = Int(message) else {
+                    return
+            }
+            switch motionTypeInt {
+            case 0:
+                self.imgRacket.image = #imageLiteral(resourceName: "ic_racket_red");
+                motionTypeString = "Backhand"
+                break
+            case 1:
+                self.imgRacket.image = #imageLiteral(resourceName: "ic_racket_green");
+                motionTypeString = "Forehand"
+                break
+            default: return
+            }
+            
+            self.lblMessage.text = "Performed Motion Type - \(motionTypeString)"
         }
     }
     

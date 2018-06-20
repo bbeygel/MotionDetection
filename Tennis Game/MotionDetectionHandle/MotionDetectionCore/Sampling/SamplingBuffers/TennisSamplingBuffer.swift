@@ -29,14 +29,14 @@ class TennisSamplingBuffer: SamplingBuffer {
         // If Isnt able to create then classification wasnt made
         // If classification wasnt made then sample is worthless
         guard let sampleData = TennisMLSample(timestamp: Int(Date().timeIntervalSince1970),
-                                        hand: hand,
-                                        peakRate: peakRate,
-                                        accumulatedYawRotation: accumulatedYawRotation,
-                                        yawThreshold: yawThreshold,
-                                        rateThreshold: rateThreshold,
-                                        accelSum:accelSum,
-                                        rawData: data) else {
-                                            return nil
+                                              hand: hand,
+                                              peakRate: peakRate,
+                                              accumulatedYawRotation: accumulatedYawRotation,
+                                              yawThreshold: yawThreshold,
+                                              rateThreshold: rateThreshold,
+                                              accelSum:accelSum,
+                                              rawData: data) else {
+                                                return nil
         }
         // If Could Classify data then the buffer is usless (because it was used)
         // Reset the buffer

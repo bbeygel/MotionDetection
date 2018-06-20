@@ -130,7 +130,7 @@ class TennisMLSample : PMLMotion, MLFeatureProvider
         self.passedPeakRateThreshold = peakRate > rateThreshold ? 1 : 0
         self.passedNegativePeakRateThreshold = peakRate < -rateThreshold ? 1 : 0
         
-        if accelSum > 100 {
+        if accelSum > 10 {
             if passedNegativeYawThreshold == 1, passedNegativePeakRateThreshold == 1 {
                 // Counter clockwise swing.
                 switch hand {

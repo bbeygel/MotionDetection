@@ -81,18 +81,18 @@ extension HandleScreenViewController: WorkoutManagerDelegate {
             return
         }
         DispatchQueue.main.async {
-            let motionType = tennisMotion.classification
+            guard let motionType = tennisMotion.classification else { return }
             switch motionType {
-            case .forhand?:
+            case .forhand:
                 self.imageView.image = #imageLiteral(resourceName: "ic_racket_green")
                 break
-            case .backhand?:
+            case .backhand:
                 self.imageView.image = #imageLiteral(resourceName: "ic_racket_red")
                 break
             default: break
             }
             
-            let message = "Performed Motion Type - \(motionType?.rawValue ?? -1)"
+            let message = "\(motionType.rawValue)"
             let messageData = message.data(using: .utf8)
             
             self.communications.sendMessage(data: messageData) {

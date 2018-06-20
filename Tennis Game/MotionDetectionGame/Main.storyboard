@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="14109" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="L2Q-IM-O1U">
+<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="14113" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="L2Q-IM-O1U">
     <device id="appleTV" orientation="landscape">
         <adaptation id="light"/>
     </device>
@@ -22,31 +22,54 @@
                         <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="ijT-Xa-pA0">
-                                <rect key="frame" x="457" y="463" width="1007" height="155"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="6PR-iN-jYJ">
+                                <rect key="frame" x="90" y="60" width="1740" height="960"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome To Motion Detection MiniGame" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R6o-Lp-LIp">
-                                        <rect key="frame" x="0.0" y="0.0" width="1007" height="69"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="1740" height="69"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Message Received: &quot;none yet&quot;" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ySC-A5-Alp">
-                                        <rect key="frame" x="244" y="109" width="520" height="46"/>
+                                        <rect key="frame" x="0.0" y="85" width="1740" height="46"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G0q-qI-vAu">
+                                        <rect key="frame" x="0.0" y="147" width="1740" height="813"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="100" image="ic_tennis_court" translatesAutoresizingMaskIntoConstraints="NO" id="zSL-DN-Odu">
+                                                <rect key="frame" x="0.0" y="0.0" width="1740" height="813"/>
+                                            </imageView>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_racket_gray" translatesAutoresizingMaskIntoConstraints="NO" id="Cta-dr-teS">
+                                                <rect key="frame" x="798" y="458" width="144" height="315"/>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="zSL-DN-Odu" secondAttribute="bottom" id="0Fc-vC-AZX"/>
+                                            <constraint firstItem="Cta-dr-teS" firstAttribute="centerX" secondItem="G0q-qI-vAu" secondAttribute="centerX" id="N9g-zJ-jA0"/>
+                                            <constraint firstItem="zSL-DN-Odu" firstAttribute="top" secondItem="G0q-qI-vAu" secondAttribute="top" id="bcj-VR-k3M"/>
+                                            <constraint firstItem="zSL-DN-Odu" firstAttribute="leading" secondItem="G0q-qI-vAu" secondAttribute="leading" id="sUj-uX-3lb"/>
+                                            <constraint firstAttribute="trailing" secondItem="zSL-DN-Odu" secondAttribute="trailing" id="y2k-SF-VWb"/>
+                                            <constraint firstAttribute="bottom" secondItem="Cta-dr-teS" secondAttribute="bottom" constant="40" id="z51-aY-uXX"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                             </stackView>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="ijT-Xa-pA0" firstAttribute="centerX" secondItem="5yj-8h-fhN" secondAttribute="centerX" id="a5k-6H-Uzy"/>
-                            <constraint firstItem="ijT-Xa-pA0" firstAttribute="centerY" secondItem="5yj-8h-fhN" secondAttribute="centerY" id="mca-jm-XWZ"/>
+                            <constraint firstItem="mCf-sG-yy9" firstAttribute="trailing" secondItem="6PR-iN-jYJ" secondAttribute="trailing" id="4aT-2n-zJK"/>
+                            <constraint firstItem="6PR-iN-jYJ" firstAttribute="leading" secondItem="mCf-sG-yy9" secondAttribute="leading" id="Lji-EF-iwX"/>
+                            <constraint firstItem="Xkc-49-up7" firstAttribute="top" secondItem="6PR-iN-jYJ" secondAttribute="bottom" id="Ntx-vU-zhZ"/>
+                            <constraint firstItem="6PR-iN-jYJ" firstAttribute="top" secondItem="hMk-TU-Fuz" secondAttribute="bottom" id="ONQ-g6-mjH"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="mCf-sG-yy9"/>
                     </view>
                     <connections>
+                        <outlet property="imgRacket" destination="Cta-dr-teS" id="FLs-8r-C3T"/>
                         <outlet property="lblMessage" destination="ySC-A5-Alp" id="Anj-bO-Kmh"/>
                         <outlet property="lblTitle" destination="R6o-Lp-LIp" id="Tfy-J6-hBq"/>
                     </connections>
@@ -56,4 +79,8 @@
             <point key="canvasLocation" x="123" y="135"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="ic_racket_gray" width="144" height="315"/>
+        <image name="ic_tennis_court" width="488" height="232"/>
+    </resources>
 </document>
