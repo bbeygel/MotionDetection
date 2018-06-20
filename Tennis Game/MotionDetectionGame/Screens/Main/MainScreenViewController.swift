@@ -61,24 +61,27 @@ extension MainScreenViewController: MCSessionDelegate {
             return
         }
         DispatchQueue.main.async { [unowned self] in
-            var motionTypeString = "none"
-            guard
-                let motionTypeInt = Int(message) else {
-                    return
-            }
-            switch motionTypeInt {
-            case 0:
-                self.imgRacket.image = #imageLiteral(resourceName: "ic_racket_red");
-                motionTypeString = "Backhand"
-                break
-            case 1:
-                self.imgRacket.image = #imageLiteral(resourceName: "ic_racket_green");
-                motionTypeString = "Forehand"
-                break
-            default: return
+            var motionTypeString = "none yet"
+            if let motionTypeInt = Int(message) {
+                switch motionTypeInt {
+                case 0:
+                    self.imgRacket.image = #imageLiteral(resourceName: "ic_racket_red");
+                    motionTypeString = "Backhand"
+                    break
+                case 1:
+                    self.imgRacket.image = #imageLiteral(resourceName: "ic_racket_green");
+                    motionTypeString = "Forehand"
+                    break
+                default: return
+                }
+                
+            } else if message == "stop" {
+                self.imgRacket.image = #imageLiteral(resourceName: "ic_racket_gray")
             }
             
             self.lblMessage.text = "Performed Motion Type - \(motionTypeString)"
+            
+            
         }
     }
     
