@@ -17,6 +17,8 @@ class TennisMotionWorkoutManager : PMotionWorkoutManager {
         return (sampler as? TennisMotionSampler)?.isSampling == true
     }
     
+    var isRunning: Bool = false
+    
     var sampledMotions = [TennisMLSample]()
     
     var forhandCount : Int {
@@ -36,12 +38,21 @@ class TennisMotionWorkoutManager : PMotionWorkoutManager {
     }
     
     func startWorkout() {
+        isRunning = true
         sampler.startSampling()
     }
     
     func stopWorkout() {
+        isRunning = false
         sampler.stopSampling()
         delegate?.didFinishSamplingMotions(sampledMotions)
+    }
+    
+    func setHandSide(_ side: HandSide) {
+        guard let tennisSampler = sampler as? TennisMotionSampler else {
+            return
+        }
+        tennisSampler.watchHandSide = side
     }
 }
 

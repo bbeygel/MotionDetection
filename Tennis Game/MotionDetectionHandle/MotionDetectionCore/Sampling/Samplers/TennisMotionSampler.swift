@@ -26,9 +26,7 @@ class TennisMotionSampler: PMotionSampler {
     
     // if crown is in the right side meaning the watch is in "normal" position
     // else the watch is upside down
-    var watchHandSide : HandSide {
-        return HandSide.right
-    }
+    var watchHandSide : HandSide  = .right
     
     init() {
         motionManager.deviceMotionUpdateInterval = sampleInterval
