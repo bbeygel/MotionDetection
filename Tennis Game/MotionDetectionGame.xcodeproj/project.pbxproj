@@ -11,17 +11,13 @@
 		36CAFC9920B018EB00E5F359 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CAFC9820B018EB00E5F359 /* AppDelegate.swift */; };
 		36CAFC9B20B018EB00E5F359 /* MainScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CAFC9A20B018EB00E5F359 /* MainScreenViewController.swift */; };
 		36CAFCA020B018ED00E5F359 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 36CAFC9F20B018ED00E5F359 /* Assets.xcassets */; };
-		36CAFCAB20B018ED00E5F359 /* MotionDetectionGameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CAFCAA20B018ED00E5F359 /* MotionDetectionGameTests.swift */; };
 		36CAFCBC20B01A5700E5F359 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CAFCBB20B01A5700E5F359 /* AppDelegate.swift */; };
 		36CAFCBE20B01A5700E5F359 /* HandleScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CAFCBD20B01A5700E5F359 /* HandleScreenViewController.swift */; };
 		36CAFCC320B01A5700E5F359 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 36CAFCC220B01A5700E5F359 /* Assets.xcassets */; };
 		36CAFCC620B01A5700E5F359 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 36CAFCC420B01A5700E5F359 /* LaunchScreen.storyboard */; };
-		36CAFCD120B01A5800E5F359 /* MotionDetectionHandleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CAFCD020B01A5800E5F359 /* MotionDetectionHandleTests.swift */; };
 		36CAFCDB20B0346100E5F359 /* HandleScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36CAFCDA20B0346100E5F359 /* HandleScreen.xib */; };
 		36CAFCDE20B035ED00E5F359 /* Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CAFCDD20B035ED00E5F359 /* Application.swift */; };
 		36CAFCE420B036A700E5F359 /* Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CAFCE320B036A700E5F359 /* Application.swift */; };
-		36CAFCF620B03A0000E5F359 /* Common.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36CAFCED20B03A0000E5F359 /* Common.framework */; };
-		36CAFCFD20B03A0000E5F359 /* CommonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CAFCFC20B03A0000E5F359 /* CommonTests.swift */; };
 		36CAFCFF20B03A0000E5F359 /* Common.h in Headers */ = {isa = PBXBuildFile; fileRef = 36CAFCEF20B03A0000E5F359 /* Common.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		36CAFD0220B03A0000E5F359 /* Common.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36CAFCED20B03A0000E5F359 /* Common.framework */; };
 		36CAFD0320B03A0000E5F359 /* Common.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 36CAFCED20B03A0000E5F359 /* Common.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -43,34 +39,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		36CAFCA720B018ED00E5F359 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 36CAFC8D20B018EB00E5F359 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 36CAFC9420B018EB00E5F359;
-			remoteInfo = MotionDetectionGame;
-		};
-		36CAFCCD20B01A5800E5F359 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 36CAFC8D20B018EB00E5F359 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 36CAFCB820B01A5700E5F359;
-			remoteInfo = MotionDetectionHandle;
-		};
-		36CAFCF720B03A0000E5F359 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 36CAFC8D20B018EB00E5F359 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 36CAFCEC20B03A0000E5F359;
-			remoteInfo = Common;
-		};
-		36CAFCF920B03A0000E5F359 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 36CAFC8D20B018EB00E5F359 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 36CAFCB820B01A5700E5F359;
-			remoteInfo = MotionDetectionHandle;
-		};
 		36CAFD0020B03A0000E5F359 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 36CAFC8D20B018EB00E5F359 /* Project object */;
@@ -101,27 +69,18 @@
 		36CAFC9A20B018EB00E5F359 /* MainScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenViewController.swift; sourceTree = "<group>"; };
 		36CAFC9F20B018ED00E5F359 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		36CAFCA120B018ED00E5F359 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		36CAFCA620B018ED00E5F359 /* MotionDetectionGameTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MotionDetectionGameTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		36CAFCAA20B018ED00E5F359 /* MotionDetectionGameTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionDetectionGameTests.swift; sourceTree = "<group>"; };
-		36CAFCAC20B018ED00E5F359 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		36CAFCB920B01A5700E5F359 /* MotionDetectionHandle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MotionDetectionHandle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		36CAFCBB20B01A5700E5F359 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		36CAFCBD20B01A5700E5F359 /* HandleScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandleScreenViewController.swift; sourceTree = "<group>"; };
 		36CAFCC220B01A5700E5F359 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		36CAFCC520B01A5700E5F359 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		36CAFCC720B01A5700E5F359 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		36CAFCCC20B01A5700E5F359 /* MotionDetectionHandleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MotionDetectionHandleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		36CAFCD020B01A5800E5F359 /* MotionDetectionHandleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionDetectionHandleTests.swift; sourceTree = "<group>"; };
-		36CAFCD220B01A5800E5F359 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		36CAFCDA20B0346100E5F359 /* HandleScreen.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HandleScreen.xib; sourceTree = "<group>"; };
 		36CAFCDD20B035ED00E5F359 /* Application.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Application.swift; sourceTree = "<group>"; };
 		36CAFCE320B036A700E5F359 /* Application.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Application.swift; sourceTree = "<group>"; };
 		36CAFCED20B03A0000E5F359 /* Common.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Common.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		36CAFCEF20B03A0000E5F359 /* Common.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
 		36CAFCF020B03A0000E5F359 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		36CAFCF520B03A0000E5F359 /* CommonTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CommonTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		36CAFCFC20B03A0000E5F359 /* CommonTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonTests.swift; sourceTree = "<group>"; };
-		36CAFCFE20B03A0000E5F359 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		36CAFD0F20B03D8300E5F359 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		36CAFD1220B06AE100E5F359 /* PMotionWorkoutManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PMotionWorkoutManager.swift; sourceTree = "<group>"; };
 		36CAFD1320B06AE100E5F359 /* TennisMotionWorkoutManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TennisMotionWorkoutManager.swift; sourceTree = "<group>"; };
@@ -147,13 +106,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		36CAFCA320B018ED00E5F359 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		36CAFCB620B01A5700E5F359 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -162,25 +114,10 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		36CAFCC920B01A5700E5F359 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		36CAFCE920B03A0000E5F359 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		36CAFCF220B03A0000E5F359 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				36CAFCF620B03A0000E5F359 /* Common.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -217,11 +154,8 @@
 			isa = PBXGroup;
 			children = (
 				36CAFC9720B018EB00E5F359 /* MotionDetectionGame */,
-				36CAFCA920B018ED00E5F359 /* MotionDetectionGameTests */,
 				36CAFCBA20B01A5700E5F359 /* MotionDetectionHandle */,
-				36CAFCCF20B01A5800E5F359 /* MotionDetectionHandleTests */,
 				36CAFCEE20B03A0000E5F359 /* Common */,
-				36CAFCFB20B03A0000E5F359 /* CommonTests */,
 				36CAFC9620B018EB00E5F359 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -230,11 +164,8 @@
 			isa = PBXGroup;
 			children = (
 				36CAFC9520B018EB00E5F359 /* MotionDetectionGame.app */,
-				36CAFCA620B018ED00E5F359 /* MotionDetectionGameTests.xctest */,
 				36CAFCB920B01A5700E5F359 /* MotionDetectionHandle.app */,
-				36CAFCCC20B01A5700E5F359 /* MotionDetectionHandleTests.xctest */,
 				36CAFCED20B03A0000E5F359 /* Common.framework */,
-				36CAFCF520B03A0000E5F359 /* CommonTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -251,15 +182,6 @@
 			path = MotionDetectionGame;
 			sourceTree = "<group>";
 		};
-		36CAFCA920B018ED00E5F359 /* MotionDetectionGameTests */ = {
-			isa = PBXGroup;
-			children = (
-				36CAFCAA20B018ED00E5F359 /* MotionDetectionGameTests.swift */,
-				36CAFCAC20B018ED00E5F359 /* Info.plist */,
-			);
-			path = MotionDetectionGameTests;
-			sourceTree = "<group>";
-		};
 		36CAFCBA20B01A5700E5F359 /* MotionDetectionHandle */ = {
 			isa = PBXGroup;
 			children = (
@@ -272,15 +194,6 @@
 				36CAFCC720B01A5700E5F359 /* Info.plist */,
 			);
 			path = MotionDetectionHandle;
-			sourceTree = "<group>";
-		};
-		36CAFCCF20B01A5800E5F359 /* MotionDetectionHandleTests */ = {
-			isa = PBXGroup;
-			children = (
-				36CAFCD020B01A5800E5F359 /* MotionDetectionHandleTests.swift */,
-				36CAFCD220B01A5800E5F359 /* Info.plist */,
-			);
-			path = MotionDetectionHandleTests;
 			sourceTree = "<group>";
 		};
 		36CAFCDC20B035E000E5F359 /* Application */ = {
@@ -341,15 +254,6 @@
 				36CAFCF020B03A0000E5F359 /* Info.plist */,
 			);
 			path = Common;
-			sourceTree = "<group>";
-		};
-		36CAFCFB20B03A0000E5F359 /* CommonTests */ = {
-			isa = PBXGroup;
-			children = (
-				36CAFCFC20B03A0000E5F359 /* CommonTests.swift */,
-				36CAFCFE20B03A0000E5F359 /* Info.plist */,
-			);
-			path = CommonTests;
 			sourceTree = "<group>";
 		};
 		36CAFD1120B06AE100E5F359 /* Workout */ = {
@@ -458,24 +362,6 @@
 			productReference = 36CAFC9520B018EB00E5F359 /* MotionDetectionGame.app */;
 			productType = "com.apple.product-type.application";
 		};
-		36CAFCA520B018ED00E5F359 /* MotionDetectionGameTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 36CAFCB220B018ED00E5F359 /* Build configuration list for PBXNativeTarget "MotionDetectionGameTests" */;
-			buildPhases = (
-				36CAFCA220B018ED00E5F359 /* Sources */,
-				36CAFCA320B018ED00E5F359 /* Frameworks */,
-				36CAFCA420B018ED00E5F359 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				36CAFCA820B018ED00E5F359 /* PBXTargetDependency */,
-			);
-			name = MotionDetectionGameTests;
-			productName = MotionDetectionGameTests;
-			productReference = 36CAFCA620B018ED00E5F359 /* MotionDetectionGameTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 		36CAFCB820B01A5700E5F359 /* MotionDetectionHandle */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 36CAFCD320B01A5800E5F359 /* Build configuration list for PBXNativeTarget "MotionDetectionHandle" */;
@@ -495,24 +381,6 @@
 			productReference = 36CAFCB920B01A5700E5F359 /* MotionDetectionHandle.app */;
 			productType = "com.apple.product-type.application";
 		};
-		36CAFCCB20B01A5700E5F359 /* MotionDetectionHandleTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 36CAFCD620B01A5800E5F359 /* Build configuration list for PBXNativeTarget "MotionDetectionHandleTests" */;
-			buildPhases = (
-				36CAFCC820B01A5700E5F359 /* Sources */,
-				36CAFCC920B01A5700E5F359 /* Frameworks */,
-				36CAFCCA20B01A5700E5F359 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				36CAFCCE20B01A5800E5F359 /* PBXTargetDependency */,
-			);
-			name = MotionDetectionHandleTests;
-			productName = MotionDetectionHandleTests;
-			productReference = 36CAFCCC20B01A5700E5F359 /* MotionDetectionHandleTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 		36CAFCEC20B03A0000E5F359 /* Common */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 36CAFD0420B03A0000E5F359 /* Build configuration list for PBXNativeTarget "Common" */;
@@ -531,25 +399,6 @@
 			productReference = 36CAFCED20B03A0000E5F359 /* Common.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		36CAFCF420B03A0000E5F359 /* CommonTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 36CAFD0820B03A0000E5F359 /* Build configuration list for PBXNativeTarget "CommonTests" */;
-			buildPhases = (
-				36CAFCF120B03A0000E5F359 /* Sources */,
-				36CAFCF220B03A0000E5F359 /* Frameworks */,
-				36CAFCF320B03A0000E5F359 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				36CAFCF820B03A0000E5F359 /* PBXTargetDependency */,
-				36CAFCFA20B03A0000E5F359 /* PBXTargetDependency */,
-			);
-			name = CommonTests;
-			productName = CommonTests;
-			productReference = 36CAFCF520B03A0000E5F359 /* CommonTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -563,23 +412,11 @@
 					36CAFC9420B018EB00E5F359 = {
 						CreatedOnToolsVersion = 9.3.1;
 					};
-					36CAFCA520B018ED00E5F359 = {
-						CreatedOnToolsVersion = 9.3.1;
-						TestTargetID = 36CAFC9420B018EB00E5F359;
-					};
 					36CAFCB820B01A5700E5F359 = {
 						CreatedOnToolsVersion = 9.3.1;
 					};
-					36CAFCCB20B01A5700E5F359 = {
-						CreatedOnToolsVersion = 9.3.1;
-						TestTargetID = 36CAFCB820B01A5700E5F359;
-					};
 					36CAFCEC20B03A0000E5F359 = {
 						CreatedOnToolsVersion = 9.3.1;
-					};
-					36CAFCF420B03A0000E5F359 = {
-						CreatedOnToolsVersion = 9.3.1;
-						TestTargetID = 36CAFCB820B01A5700E5F359;
 					};
 				};
 			};
@@ -597,11 +434,8 @@
 			projectRoot = "";
 			targets = (
 				36CAFC9420B018EB00E5F359 /* MotionDetectionGame */,
-				36CAFCA520B018ED00E5F359 /* MotionDetectionGameTests */,
 				36CAFCB820B01A5700E5F359 /* MotionDetectionHandle */,
-				36CAFCCB20B01A5700E5F359 /* MotionDetectionHandleTests */,
 				36CAFCEC20B03A0000E5F359 /* Common */,
-				36CAFCF420B03A0000E5F359 /* CommonTests */,
 			);
 		};
 /* End PBXProject section */
@@ -616,13 +450,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		36CAFCA420B018ED00E5F359 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		36CAFCB720B01A5700E5F359 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -633,21 +460,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		36CAFCCA20B01A5700E5F359 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		36CAFCEB20B03A0000E5F359 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		36CAFCF320B03A0000E5F359 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -664,14 +477,6 @@
 				36CAFCDE20B035ED00E5F359 /* Application.swift in Sources */,
 				36CAFC9B20B018EB00E5F359 /* MainScreenViewController.swift in Sources */,
 				36CAFC9920B018EB00E5F359 /* AppDelegate.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		36CAFCA220B018ED00E5F359 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				36CAFCAB20B018ED00E5F359 /* MotionDetectionGameTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -698,14 +503,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		36CAFCC820B01A5700E5F359 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				36CAFCD120B01A5800E5F359 /* MotionDetectionHandleTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		36CAFCE820B03A0000E5F359 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -715,37 +512,9 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		36CAFCF120B03A0000E5F359 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				36CAFCFD20B03A0000E5F359 /* CommonTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		36CAFCA820B018ED00E5F359 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 36CAFC9420B018EB00E5F359 /* MotionDetectionGame */;
-			targetProxy = 36CAFCA720B018ED00E5F359 /* PBXContainerItemProxy */;
-		};
-		36CAFCCE20B01A5800E5F359 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 36CAFCB820B01A5700E5F359 /* MotionDetectionHandle */;
-			targetProxy = 36CAFCCD20B01A5800E5F359 /* PBXContainerItemProxy */;
-		};
-		36CAFCF820B03A0000E5F359 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 36CAFCEC20B03A0000E5F359 /* Common */;
-			targetProxy = 36CAFCF720B03A0000E5F359 /* PBXContainerItemProxy */;
-		};
-		36CAFCFA20B03A0000E5F359 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 36CAFCB820B01A5700E5F359 /* MotionDetectionHandle */;
-			targetProxy = 36CAFCF920B03A0000E5F359 /* PBXContainerItemProxy */;
-		};
 		36CAFD0120B03A0000E5F359 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 36CAFCEC20B03A0000E5F359 /* Common */;
@@ -917,46 +686,6 @@
 			};
 			name = Release;
 		};
-		36CAFCB320B018ED00E5F359 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = MotionDetectionGameTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.interactech.MotionDetectionGameTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = 3;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MotionDetectionGame.app/MotionDetectionGame";
-			};
-			name = Debug;
-		};
-		36CAFCB420B018ED00E5F359 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = MotionDetectionGameTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.interactech.MotionDetectionGameTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = 3;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MotionDetectionGame.app/MotionDetectionGame";
-			};
-			name = Release;
-		};
 		36CAFCD420B01A5800E5F359 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -998,54 +727,6 @@
 				SDKROOT = iphoneos;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
-		36CAFCD720B01A5800E5F359 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = SGDFJZX8EN;
-				INFOPLIST_FILE = MotionDetectionHandleTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.interactech.MotionDetectionHandleTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MotionDetectionHandle.app/MotionDetectionHandle";
-			};
-			name = Debug;
-		};
-		36CAFCD820B01A5800E5F359 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = SGDFJZX8EN;
-				INFOPLIST_FILE = MotionDetectionHandleTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.interactech.MotionDetectionHandleTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MotionDetectionHandle.app/MotionDetectionHandle";
 			};
 			name = Release;
 		};
@@ -1109,52 +790,6 @@
 			};
 			name = Release;
 		};
-		36CAFD0920B03A0000E5F359 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = SGDFJZX8EN;
-				INFOPLIST_FILE = CommonTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.beygel.CommonTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MotionDetectionHandle.app/MotionDetectionHandle";
-			};
-			name = Debug;
-		};
-		36CAFD0A20B03A0000E5F359 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = SGDFJZX8EN;
-				INFOPLIST_FILE = CommonTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.beygel.CommonTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MotionDetectionHandle.app/MotionDetectionHandle";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1176,15 +811,6 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		36CAFCB220B018ED00E5F359 /* Build configuration list for PBXNativeTarget "MotionDetectionGameTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				36CAFCB320B018ED00E5F359 /* Debug */,
-				36CAFCB420B018ED00E5F359 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		36CAFCD320B01A5800E5F359 /* Build configuration list for PBXNativeTarget "MotionDetectionHandle" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -1194,29 +820,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		36CAFCD620B01A5800E5F359 /* Build configuration list for PBXNativeTarget "MotionDetectionHandleTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				36CAFCD720B01A5800E5F359 /* Debug */,
-				36CAFCD820B01A5800E5F359 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		36CAFD0420B03A0000E5F359 /* Build configuration list for PBXNativeTarget "Common" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				36CAFD0520B03A0000E5F359 /* Debug */,
 				36CAFD0620B03A0000E5F359 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		36CAFD0820B03A0000E5F359 /* Build configuration list for PBXNativeTarget "CommonTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				36CAFD0920B03A0000E5F359 /* Debug */,
-				36CAFD0A20B03A0000E5F359 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

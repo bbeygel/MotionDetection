@@ -27,13 +27,16 @@ class TennisMotionWorkoutManager : PMotionWorkoutManager {
             return sample.classification == TennisMotionType.forhand
             }.count
     }
+    
     var backhandCount : Int {
         return sampledMotions.filter{
             (sample: TennisMLSample) -> Bool in
             return sample.classification == TennisMotionType.backhand
             }.count
     }
+    
     init() {
+
         sampler.delegate = self
     }
     
